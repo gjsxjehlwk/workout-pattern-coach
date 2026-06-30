@@ -167,6 +167,8 @@ Apps Script 웹앱은 [Apps Script Web Apps](https://developers.google.com/apps-
 - 전송 실패 시 큐에 남겨 다음 실행이나 수동 동기화 때 재시도합니다.
 - Google 로그인 모드에서는 동기화 전에 Apps Script `verify` 요청으로 토큰 검증을 먼저 확인합니다.
 - Google 토큰이 없거나 만료되면 큐를 비우지 않고 `Google 로그인 필요` 상태로 남깁니다.
+- 동기화가 진행되는 동안 앱에는 `동기화 중입니다...` 상태가 표시되고 관련 버튼이 잠시 비활성화됩니다.
+- Apps Script URL과 Google OAuth Client ID는 저장 후 기본 화면에서 접혀 보이지 않습니다. 수정이 필요할 때만 `설정 수정`을 누릅니다.
 - Apps Script는 같은 `id`나 `key`가 이미 있으면 새 행을 추가하지 않고 기존 행을 갱신합니다.
 - Google 로그인 모드에서는 Apps Script가 클라이언트의 `userId`를 그대로 믿지 않고 검증된 `google:sub` 기준으로 ID를 다시 만듭니다.
 - `불러오기`는 Apps Script의 JSONP 응답으로 Google Sheets 기록을 다시 브라우저에 병합합니다.
@@ -176,6 +178,8 @@ Apps Script 웹앱은 [Apps Script Web Apps](https://developers.google.com/apps-
 - GitHub Pages는 저장 서버가 아닙니다. 실제 장기 기록은 Google Sheets 쪽에 보관합니다.
 - Google 로그인은 `file://`에서 안정적으로 테스트하기 어렵습니다. GitHub Pages 또는 `localhost` 서버에서 테스트하세요.
 - Google ID 토큰은 만료됩니다. 시간이 지나면 다시 로그인해야 동기화됩니다.
+- Google OAuth Client ID는 비밀키가 아닙니다. 프론트엔드 Google 로그인에 필요한 공개 식별자입니다. 보안은 Google Cloud의 허용 origin 설정과 Apps Script의 ID 토큰 검증으로 지켜집니다.
+- Apps Script 웹앱 URL도 비밀번호처럼 취급되는 값은 아니지만, 화면 공유 중 불필요한 노출을 줄이기 위해 앱에서는 저장 후 숨깁니다.
 - 타이머 매초마다 서버에 전송하지 않습니다. Apps Script 할당량을 아끼기 위해 세트 완료와 운동 완료 이벤트만 전송합니다.
 - 개인정보나 민감정보는 기록하지 않는 것을 권장합니다.
 - 한 브라우저에서 여러 Google 계정을 번갈아 쓰는 용도는 최소화하는 것이 좋습니다.

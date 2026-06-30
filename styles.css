@@ -1023,6 +1023,54 @@ h2.long-name {
   white-space: nowrap;
 }
 
+.sync-panel-header strong.is-working {
+  color: var(--teal);
+}
+
+.sync-panel-header strong.is-working::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  border-radius: 999px;
+  background: var(--teal);
+  animation: sync-pulse 0.9s ease-in-out infinite alternate;
+}
+
+.sync-config-fields {
+  display: grid;
+  gap: 8px;
+}
+
+.sync-config-summary {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdff;
+  padding: 9px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.sync-config-summary[hidden] {
+  display: none;
+}
+
+.sync-config-summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+.sync-config-summary strong {
+  color: var(--navy);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
 .sync-url-field {
   display: grid;
   gap: 4px;
@@ -1133,8 +1181,32 @@ h2.long-name {
   height: 13px;
 }
 
+.sync-panel.is-config-collapsed #saveSyncSettingsBtn {
+  display: none;
+}
+
+.sync-panel.is-busy .sync-btn {
+  opacity: 0.72;
+}
+
+.sync-panel.is-busy .sync-status {
+  color: var(--teal);
+  font-weight: 850;
+}
+
 .google-signout-btn[hidden] {
   display: none;
+}
+
+@keyframes sync-pulse {
+  from {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.08);
+  }
 }
 
 /* 백업 섹션 */

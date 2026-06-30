@@ -186,6 +186,7 @@ let tickId = null;
 let syncInProgress = false;
 let remoteImportInProgress = false;
 let renderedGoogleClientId = "";
+let editingSyncSettings = false;
 
 const els = {
   todayCard: document.querySelector("#todayCard"),
@@ -225,11 +226,15 @@ const els = {
   importJsonFile: document.querySelector("#importJsonFile"),
   timerProgressCircle: document.querySelector("#timerProgressCircle"),
   totalStopwatchText: document.querySelector("#totalStopwatchText"),
+  syncPanel: document.querySelector(".sync-panel"),
+  syncConfigSummary: document.querySelector("#syncConfigSummary"),
+  syncConfigFields: document.querySelector("#syncConfigFields"),
   appsScriptUrlInput: document.querySelector("#appsScriptUrlInput"),
   googleClientIdInput: document.querySelector("#googleClientIdInput"),
   googleAccountText: document.querySelector("#googleAccountText"),
   googleSignInButton: document.querySelector("#googleSignInButton"),
   googleSignOutBtn: document.querySelector("#googleSignOutBtn"),
+  editSyncSettingsBtn: document.querySelector("#editSyncSettingsBtn"),
   saveSyncSettingsBtn: document.querySelector("#saveSyncSettingsBtn"),
   syncNowBtn: document.querySelector("#syncNowBtn"),
   pullRemoteBtn: document.querySelector("#pullRemoteBtn"),
@@ -1097,17 +1102,33 @@ function renderSyncPanel() {
   if (!els.syncStatusText) return;
   const hasUrl = Boolean(settings.appsScriptUrl.trim());
   const pending = syncQueue.length;
+  const isBusy = syncInProgress || remoteImportInProgress;
+  const configSaved = Boolean(settings.appsScriptUrl.trim() && settings.googleClientId.trim());
+  const collapseConfig = configSaved && !editingSyncSettings;
   const lastSync = settings.lastSyncAt ? ` · 마지막 ${formatShortDateTime(settings.lastSyncAt)}` : "";
   const error = settings.lastSyncError ? ` · 오류: ${settings.lastSyncError}` : "";
   const authNotice = requiresGoogleAuthForSync() && !isAuthSessionFresh() ? " · Google 로그인 필요" : "";
-  els.syncStatusText.textContent = hasUrl
-    ? pending
-      ? `동기화 대기 ${pending}건${authNotice}${error}`
-      : `동기화 준비됨${lastSync}${authNotice}${error}`
-    : "Apps Script URL을 입력하면 Google Sheets 동기화가 켜집니다.";
-  els.syncStatusText.classList.toggle("is-error", Boolean(settings.lastSyncError));
-  els.syncQueueText.textContent = pending ? `${pending}건 대기` : "대기 없음";
+  els.syncStatusText.textContent = isBusy
+    ? remoteImportInProgress
+      ? "Google Sheets 기록을 불러오는 중입니다..."
+      : `동기화 중입니다... ${pending ? `${pending}건 처리 중` : "잠시만 기다려주세요"}`
+    : hasUrl
+      ? pending
+        ? `동기화 대기 ${pending}건${authNotice}${error}`
+        : `동기화 준비됨${lastSync}${authNotice}${error}`
+      : "Apps Script URL을 입력하면 Google Sheets 동기화가 켜집니다.";
+  els.syncStatusText.classList.toggle("is-error", Boolean(settings.lastSyncError) && !isBusy);
+  els.syncQueueText.textContent = isBusy ? "동기화 중" : pending ? `${pending}건 대기` : "대기 없음";
+  els.syncQueueText.classList.toggle("is-working", isBusy);
   els.googleAccountText.textContent = getGoogleAccountLabel();
+  els.syncPanel.classList.toggle("is-busy", isBusy);
+  els.syncPanel.classList.toggle("is-config-collapsed", collapseConfig);
+  els.syncConfigSummary.hidden = !collapseConfig;
+  els.syncConfigFields.hidden = collapseConfig;
+  els.saveSyncSettingsBtn.disabled = isBusy;
+  els.syncNowBtn.disabled = isBusy;
+  els.pullRemoteBtn.disabled = isBusy;
+  els.editSyncSettingsBtn.disabled = isBusy;
 
   if (document.activeElement !== els.appsScriptUrlInput) {
     els.appsScriptUrlInput.value = settings.appsScriptUrl;
@@ -1269,8 +1290,8 @@ function completeWorkout() {
   state.completed = true;
   state.running = false;
   state.restRemaining = 0;
-  queueDailySummary();
   saveState();
+  enqueueDateStateForSync(state);
   render();
   flushSyncQueue();
 }
@@ -1313,6 +1334,11 @@ function queueDailySummary(dateState = state) {
   queueSync("upsertDailySummary", buildDailySummary(dateState));
 }
 
+function enqueueDateStateForSync(dateState = state) {
+  dateState.setRecords.forEach((record) => queueSync("upsertSetLog", record));
+  queueDailySummary(dateState);
+}
+
 function queueSync(action, payload) {
   const id = `${action}:${payload.id || payload.key}`;
   const existingIndex = syncQueue.findIndex((item) => item.id === id);
@@ -1336,8 +1362,7 @@ function queueSync(action, payload) {
 function enqueueAllLocalHistory() {
   getAllHistory().forEach((historyItem) => {
     const dateState = loadStateForDate(historyItem.date);
-    dateState.setRecords.forEach((record) => queueSync("upsertSetLog", record));
-    queueDailySummary(dateState);
+    enqueueDateStateForSync(dateState);
   });
 }
 
@@ -1364,7 +1389,7 @@ function requestJsonp(url, prefix = "workoutCoachJsonp") {
     timeoutId = window.setTimeout(() => {
       cleanup();
       reject(new Error("Apps Script 응답 시간이 초과되었습니다."));
-    }, 15000);
+    }, 45000);
 
     url.searchParams.set("callback", callbackName);
     script.src = url.toString();
@@ -1403,19 +1428,15 @@ async function flushSyncQueue() {
     renderSyncPanel();
     return;
   }
-  if (authPayload) {
-    try {
-      await verifyRemoteAuth(authPayload);
-    } catch (error) {
-      settings.lastSyncError = error.message || "Google 로그인 검증 실패";
-      saveSettings();
-      renderSyncPanel();
-      return;
-    }
-  }
 
   syncInProgress = true;
+  settings.lastSyncError = "";
+  saveSettings();
+  renderSyncPanel();
   try {
+    if (authPayload) {
+      await verifyRemoteAuth(authPayload);
+    }
     const remaining = [];
     for (const item of syncQueue) {
       try {
@@ -1437,6 +1458,8 @@ async function flushSyncQueue() {
     syncQueue = remaining;
     settings.lastSyncAt = new Date().toISOString();
     settings.lastSyncError = remaining.length ? remaining[0].lastError : "";
+  } catch (error) {
+    settings.lastSyncError = error.message || "동기화 실패";
   } finally {
     syncInProgress = false;
     saveSyncQueue();
@@ -1471,9 +1494,16 @@ function saveSyncSettingsFromUi() {
     saveAuthSession();
   }
   settings.lastSyncError = "";
+  editingSyncSettings = false;
   saveSettings();
   renderSyncPanel();
   flushSyncQueue();
+}
+
+function editSyncSettings() {
+  editingSyncSettings = true;
+  renderSyncPanel();
+  window.setTimeout(() => els.appsScriptUrlInput.focus(), 0);
 }
 
 function syncNow() {
@@ -1497,6 +1527,7 @@ function pullRemoteRecords() {
   }
 
   remoteImportInProgress = true;
+  renderSyncPanel();
   const callbackName = `workoutCoachJsonp_${Date.now()}_${Math.random().toString(16).slice(2)}`;
   const script = document.createElement("script");
   let url;
@@ -1540,6 +1571,7 @@ function pullRemoteRecords() {
       delete window[callbackName];
       script.remove();
       remoteImportInProgress = false;
+      renderSyncPanel();
     }
   };
 
@@ -1733,6 +1765,7 @@ els.exportJsonBtn.addEventListener("click", exportHistoryJson);
 els.importJsonBtn.addEventListener("click", () => els.importJsonFile.click());
 els.importJsonFile.addEventListener("change", importHistoryJson);
 els.saveSyncSettingsBtn.addEventListener("click", saveSyncSettingsFromUi);
+els.editSyncSettingsBtn.addEventListener("click", editSyncSettings);
 els.syncNowBtn.addEventListener("click", syncNow);
 els.pullRemoteBtn.addEventListener("click", pullRemoteRecords);
 els.googleSignOutBtn.addEventListener("click", signOutGoogle);

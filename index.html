@@ -164,14 +164,25 @@
               <span>Google Sheets 동기화</span>
               <strong id="syncQueueText">대기 없음</strong>
             </div>
-            <label class="sync-url-field">
-              <span>Apps Script 웹앱 URL</span>
-              <input id="appsScriptUrlInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" />
-            </label>
-            <label class="sync-url-field">
-              <span>Google OAuth Client ID</span>
-              <input id="googleClientIdInput" type="text" autocomplete="off" placeholder="1234567890-abc.apps.googleusercontent.com" />
-            </label>
+            <div class="sync-config-summary" id="syncConfigSummary" hidden>
+              <div>
+                <span>연결 정보</span>
+                <strong>저장됨</strong>
+              </div>
+              <button type="button" class="sync-btn" id="editSyncSettingsBtn">
+                <i data-lucide="settings"></i> 설정 수정
+              </button>
+            </div>
+            <div class="sync-config-fields" id="syncConfigFields">
+              <label class="sync-url-field">
+                <span>Apps Script 웹앱 URL</span>
+                <input id="appsScriptUrlInput" type="password" autocomplete="off" placeholder="https://script.google.com/macros/s/.../exec" />
+              </label>
+              <label class="sync-url-field">
+                <span>Google OAuth Client ID</span>
+                <input id="googleClientIdInput" type="password" autocomplete="off" placeholder="1234567890-abc.apps.googleusercontent.com" />
+              </label>
+            </div>
             <div class="google-auth-panel">
               <div class="google-auth-copy">
                 <span>Google 계정</span>
