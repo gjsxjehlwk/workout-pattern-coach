@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>운동 패턴 코치</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <script>
+      window.handleGoogleIdentityLoaded = function () {
+        window.dispatchEvent(new Event("google-identity-loaded"));
+      };
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer onload="window.handleGoogleIdentityLoaded()"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">월 · 수 · 금 루틴</p>
+          <h1>운동 패턴 코치</h1>
+        </div>
+        <div class="today-card" id="todayCard" aria-live="polite"></div>
+      </header>
+
+      <section class="week-strip" id="weekStrip" aria-label="주간 운동 계획"></section>
+
+      <main class="layout">
+        <aside class="sequence-panel" aria-label="운동 순서">
+          <div class="panel-heading">
+            <span>오늘 순서</span>
+            <strong id="totalProgressText">0 / 0 세트</strong>
+          </div>
+          <div class="progress-shell" aria-hidden="true">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <div class="sequence-list" id="sequenceList"></div>
+        </aside>
+
+        <section class="coach-panel">
+          <!-- 타이머 보드를 최상단으로 이동 및 서클 게이지 적용 -->
+          <div class="timer-board" id="timerBoard">
+            <div class="timer-visual">
+              <svg class="progress-ring" width="140" height="140">
+                <circle class="progress-ring__background" cx="70" cy="70" r="62" stroke-width="8" fill="transparent"></circle>
+                <circle class="progress-ring__circle" id="timerProgressCircle" cx="70" cy="70" r="62" stroke-width="8" fill="transparent"></circle>
+              </svg>
+              <div class="timer-digits">
+                <p id="phaseLabel">대기</p>
+                <strong id="timerText">00:00</strong>
+                <span id="nextCue"></span>
+                <!-- 누적 스톱워치 텍스트 -->
+                <span class="total-stopwatch" id="totalStopwatchText">
+                  <i data-lucide="clock"></i> 총 운동 00:00
+                </span>
+              </div>
+            </div>
+            <div class="timer-controls">
+              <!-- 세트별 수행 횟수 기록용 조절기 -->
+              <div class="rep-counter-section">
+                <span>이번 세트 완료 횟수</span>
+                <div class="rep-adjuster">
+                  <button type="button" class="adjust-btn" id="repDecBtn" aria-label="횟수 감소">
+                    <i data-lucide="minus"></i>
+                  </button>
+                  <input type="number" id="repInput" min="0" max="999" value="10" />
+                  <span class="unit">회</span>
+                  <button type="button" class="adjust-btn" id="repIncBtn" aria-label="횟수 증가">
+                    <i data-lucide="plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="buttons-grid">
+                <button class="primary-btn" id="startPauseBtn" type="button">
+                  <i data-lucide="play"></i>
+                  <span>시작</span>
+                </button>
+                <button id="completeSetBtn" type="button">
+                  <i data-lucide="check"></i>
+                  <span>세트 완료</span>
+                </button>
+                <button id="skipRestBtn" type="button">
+                  <i data-lucide="skip-forward"></i>
+                  <span>휴식 넘김</span>
+                </button>
+                <button id="resetBtn" type="button">
+                  <i data-lucide="rotate-ccw"></i>
+                  <span>초기화</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 운동 안내 카드 -->
+          <div class="exercise-card">
+            <div class="exercise-visual">
+              <img id="exerciseImage" alt="" />
+            </div>
+            <div class="exercise-detail">
+              <div class="group-row">
+                <span class="group-pill" id="groupPill"></span>
+                <span class="level-pill" id="levelPill"></span>
+              </div>
+              <h2 id="exerciseName"></h2>
+              <div class="metric-grid">
+                <div>
+                  <span>타깃</span>
+                  <strong id="targetText"></strong>
+                </div>
+                <div>
+                  <span>반복</span>
+                  <strong id="repsText"></strong>
+                </div>
+                <div>
+                  <span>세트</span>
+                  <strong id="setText"></strong>
+                </div>
+                <div>
+                  <span>휴식</span>
+                  <strong id="restText"></strong>
+                </div>
+              </div>
+              <div class="note-list" id="noteList"></div>
+            </div>
+          </div>
+
+          <!-- 오늘 운동 조기 완료 버튼 -->
+          <button id="finishWorkoutBtn" class="finish-workout-btn" type="button">
+            <i data-lucide="trophy"></i>
+            <span>오늘 운동 완료하기</span>
+          </button>
+        </section>
+
+        <!-- 우측 원본 루틴을 제거하고 운동 기록 패널 배치 -->
+        <aside class="history-panel" aria-label="운동 기록">
+          <div class="panel-heading">
+            <span>운동 기록 (History)</span>
+            <button id="clearHistoryBtn" class="clear-btn" type="button">전체 삭제</button>
+          </div>
+          
+          <!-- 일일 기록 뷰 -->
+          <div class="history-list tab-content" id="dailyHistoryView">
+            <!-- 일자별 운동 기록이 저장되어 표시됨 -->
+          </div>
+
+          <!-- 달력 기록 뷰 -->
+          <div class="calendar-view tab-content" id="calendarHistoryView" style="display: none;">
+            <!-- 월간 캘린더가 렌더링됨 -->
+          </div>
+
+          <!-- 하단 탭 바 -->
+          <div class="history-tabs-bar">
+            <button type="button" class="tab-btn active" id="tabDailyBtn" data-tab="daily">
+              <i data-lucide="list"></i> 일일 기록
+            </button>
+            <button type="button" class="tab-btn" id="tabCalendarBtn" data-tab="calendar">
+              <i data-lucide="calendar"></i> 달력 기록
+            </button>
+          </div>
+
+          <section class="sync-panel" aria-label="Google Sheets 동기화">
+            <div class="sync-panel-header">
+              <span>Google Sheets 동기화</span>
+              <strong id="syncQueueText">대기 없음</strong>
+            </div>
+            <label class="sync-url-field">
+              <span>Apps Script 웹앱 URL</span>
+              <input id="appsScriptUrlInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" />
+            </label>
+            <label class="sync-url-field">
+              <span>Google OAuth Client ID</span>
+              <input id="googleClientIdInput" type="text" autocomplete="off" placeholder="1234567890-abc.apps.googleusercontent.com" />
+            </label>
+            <div class="google-auth-panel">
+              <div class="google-auth-copy">
+                <span>Google 계정</span>
+                <strong id="googleAccountText">로그인 전</strong>
+              </div>
+              <div class="google-auth-controls">
+                <div id="googleSignInButton"></div>
+                <button type="button" class="sync-btn google-signout-btn" id="googleSignOutBtn">
+                  <i data-lucide="log-out"></i> 로그아웃
+                </button>
+              </div>
+            </div>
+            <p class="sync-status" id="syncStatusText">Apps Script URL을 입력하면 Google Sheets 동기화가 켜집니다.</p>
+            <div class="sync-actions">
+              <button type="button" class="sync-btn" id="saveSyncSettingsBtn">
+                <i data-lucide="save"></i> 저장
+              </button>
+              <button type="button" class="sync-btn" id="syncNowBtn">
+                <i data-lucide="refresh-cw"></i> 동기화
+              </button>
+              <button type="button" class="sync-btn" id="pullRemoteBtn">
+                <i data-lucide="cloud-download"></i> 불러오기
+              </button>
+            </div>
+          </section>
+
+          <!-- 백업 및 복원 컨트롤 -->
+          <div class="history-backup-section">
+            <button type="button" class="backup-btn" id="exportCsvBtn" title="엑셀용 CSV 파일로 내보내기">
+              <i data-lucide="download"></i> CSV
+            </button>
+            <button type="button" class="backup-btn" id="exportJsonBtn" title="복구용 JSON 백업 파일 내보내기">
+              <i data-lucide="file-json"></i> 백업
+            </button>
+            <button type="button" class="backup-btn" id="importJsonBtn" title="JSON 백업 파일로 복원하기">
+              <i data-lucide="upload"></i> 복원
+            </button>
+            <input type="file" id="importJsonFile" accept=".json" style="display: none;" />
+          </div>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>
