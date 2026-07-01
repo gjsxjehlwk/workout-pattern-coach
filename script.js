@@ -143,8 +143,8 @@ const routineGroups = [
   },
 ];
 
-const appVersion = "2.1.0";
-const assetVersion = "beginner-routine-20260702";
+const appVersion = "2.1.1";
+const assetVersion = "beginner-routine-20260702-2";
 const storagePrefix = "workoutPatternCoach:";
 const settingsKey = `${storagePrefix}settings`;
 const userKey = `${storagePrefix}userId`;
