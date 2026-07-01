@@ -6,37 +6,21 @@ const routineGroups = [
     accent: "#ef5b4c",
     exercises: [
       {
-        id: "pushup-standard",
-        level: "레벨 1",
-        name: "일반 푸쉬업",
-        target: "가슴 중간 (볼륨)",
-        reps: "10-15회",
-        sets: 3,
-        rest: 60,
-        image: "assets/pushup-standard.png",
-        notes: ["초보자는 무릎 대고 수행", "몸통 일직선 유지"],
-      },
-      {
-        id: "pushup-decline",
-        level: "레벨 2",
-        name: "디클라인 푸쉬업",
-        target: "가슴 상부 (라인)",
-        reps: "8-12회",
-        sets: 3,
-        rest: 60,
-        image: "assets/pushup-decline.png",
-        notes: ["발을 의자에 올림", "가슴을 바닥 쪽으로"],
-      },
-      {
         id: "pushup-incline",
-        level: "레벨 3",
+        level: "초보 기본",
         name: "인클라인 푸쉬업",
-        target: "가슴 하부 (데피니션)",
-        reps: "최대",
-        sets: 2,
+        target: "가슴, 삼두, 코어",
+        reps: "6-12회",
+        sets: 3,
         rest: 60,
         image: "assets/pushup-incline.png",
-        notes: ["손을 의자에 올림", "마지막 한계까지"],
+        equipment: "튼튼한 책상, 의자, 벤치",
+        notes: ["목표 3세트, 처음엔 1-2세트도 충분", "몸통 일직선 유지"],
+        intro:
+          "바닥 푸쉬업보다 부담이 낮아 초보자가 가슴 운동 자세를 익히기 좋습니다. 높이를 낮출수록 난도가 올라갑니다.",
+        steps: ["손을 어깨보다 약간 넓게 짚습니다.", "머리부터 발뒤꿈치까지 일직선을 만듭니다.", "가슴을 천천히 내리고 팔꿈치가 과하게 벌어지지 않게 밀어 올립니다."],
+        watch: ["허리가 꺾이면 높이를 더 올립니다.", "손목이 아프면 푸시업바나 더 높은 지지대를 씁니다."],
+        scale: "12회씩 3세트가 안정되면 일반 푸쉬업으로 바꾸거나 지지대 높이를 낮추세요.",
       },
     ],
   },
@@ -47,26 +31,21 @@ const routineGroups = [
     accent: "#119a8d",
     exercises: [
       {
-        id: "lat-pulldown",
-        level: "레벨 1",
-        name: "비하인드 랫 풀다운",
-        target: "등 넓이",
-        reps: "15회",
-        sets: 3,
-        rest: 60,
-        image: "assets/lat-pulldown.png",
-        notes: ["의자 활용", "팔꿈치를 아래로 당김"],
-      },
-      {
         id: "bent-over-row",
-        level: "레벨 2",
+        level: "초보 기본",
         name: "벤트오버 로우",
-        target: "등 두께",
-        reps: "15회",
+        target: "광배근, 등 중부",
+        reps: "10-15회",
         sets: 3,
         rest: 60,
         image: "assets/bent-row.png",
-        notes: ["물병 사용 가능", "허리 중립 유지"],
+        equipment: "물병, 백팩, 덤벨",
+        notes: ["가슴을 열고 팔꿈치를 뒤로", "허리 중립 유지"],
+        intro:
+          "집에서 등 두께를 만들기 좋은 기본 당기기 운동입니다. 가벼운 물병부터 시작해도 충분합니다.",
+        steps: ["엉덩이를 뒤로 빼며 상체를 살짝 숙입니다.", "등을 평평하게 유지하고 배에 힘을 줍니다.", "팔꿈치를 뒤로 보내며 손을 옆구리 쪽으로 당깁니다."],
+        watch: ["허리가 둥글게 말리면 무게를 줄입니다.", "목을 들지 말고 시선은 바닥 앞쪽에 둡니다."],
+        scale: "15회씩 3세트가 쉬워지면 물병 무게를 늘리거나 저항밴드 로우를 추가하세요.",
       },
     ],
   },
@@ -78,44 +57,45 @@ const routineGroups = [
     exercises: [
       {
         id: "side-lateral-raise",
-        level: "단일 루틴",
+        level: "초보 기본",
         name: "사이드 레터럴 레이즈",
         target: "측면 어깨",
-        reps: "20-25회",
+        reps: "12-20회",
         sets: 3,
         rest: 60,
         image: "assets/lateral-raise.png",
-        notes: ["셔츠 핏 포인트", "어깨 높이까지만"],
+        equipment: "작은 물병, 가벼운 덤벨",
+        notes: ["가볍게, 천천히", "어깨 높이까지만"],
+        intro:
+          "어깨 측면을 키우는 운동입니다. 초보자는 무게보다 자세와 천천히 내리는 감각이 더 중요합니다.",
+        steps: ["팔꿈치를 살짝 굽히고 양손을 몸 옆에 둡니다.", "어깨를 으쓱하지 않고 양팔을 옆으로 들어 올립니다.", "어깨 높이 부근에서 멈추고 천천히 내립니다."],
+        watch: ["반동으로 들어 올리지 않습니다.", "목이나 승모근이 먼저 힘들면 무게를 줄입니다."],
+        scale: "20회씩 3세트가 안정되면 아주 조금만 무게를 올리세요.",
       },
     ],
   },
   {
     id: "abs",
     name: "복근",
-    subtitle: "전면 · 옆구리",
+    subtitle: "AB슬라이드",
     accent: "#6a5acd",
     exercises: [
       {
-        id: "superman-crunch",
-        level: "레벨 1",
-        name: "전신 크런치",
-        target: "상·하복부 전면",
-        reps: "15회",
+        id: "ab-wheel-rollout",
+        level: "초보 짧은 범위",
+        name: "AB슬라이드 무릎 롤아웃",
+        target: "복직근, 코어 안정성",
+        reps: "3-8회",
         sets: 3,
-        rest: 40,
-        image: "assets/superman-crunch.png",
-        notes: ["플랭크와 병행 좋음", "복부 텐션 유지"],
-      },
-      {
-        id: "side-toe-touch",
-        level: "레벨 2",
-        name: "사이드 토터치",
-        target: "옆구리 (외복사근)",
-        reps: "왕복 15회",
-        sets: 3,
-        rest: 40,
-        image: "assets/side-toe-touch.png",
-        notes: ["좌우를 1회로 계산", "목 힘 빼기"],
+        rest: 60,
+        image: "assets/ab-wheel-rollout.svg",
+        equipment: "AB슬라이드, 무릎 매트",
+        notes: ["무릎 대고 짧게 시작", "허리 꺾이면 즉시 중단"],
+        intro:
+          "AB슬라이드는 복근 긴장을 유지하는 능력을 크게 요구합니다. 초보자는 멀리 굴리는 것보다 허리를 안전하게 지키는 범위가 우선입니다.",
+        steps: ["무릎을 매트에 대고 손잡이를 단단히 잡습니다.", "배와 엉덩이에 힘을 주고 갈비뼈가 들리지 않게 합니다.", "버틸 수 있는 거리까지만 천천히 굴렸다가 복근으로 되돌아옵니다."],
+        watch: ["허리가 아래로 꺾이면 즉시 범위를 줄입니다.", "어깨가 아프면 데드버그로 대체합니다."],
+        scale: "3회씩 1세트부터 시작하고, 통증 없이 8회가 되면 세트를 늘리세요.",
       },
     ],
   },
@@ -127,21 +107,44 @@ const routineGroups = [
     exercises: [
       {
         id: "bodyweight-squat",
-        level: "단일 루틴",
+        level: "초보 기본",
         name: "맨몸 스쿼트",
         target: "하체 전반 (대퇴사두, 둔근)",
-        reps: "15회",
+        reps: "8-15회",
         sets: 3,
         rest: 60,
         image: "assets/squat.png",
+        equipment: "맨몸",
         notes: ["엉덩이를 뒤로", "무릎 방향 유지"],
+        intro:
+          "하체 전반과 일상 움직임을 함께 키우는 기본 운동입니다. 깊이보다 무릎 방향과 균형이 먼저입니다.",
+        steps: ["발을 어깨너비 정도로 놓고 발끝을 살짝 바깥으로 둡니다.", "엉덩이를 뒤로 보내며 의자에 앉듯 내려갑니다.", "발바닥 전체로 바닥을 밀며 일어섭니다."],
+        watch: ["무릎이 안쪽으로 무너지지 않게 합니다.", "허리가 말리기 전 깊이에서 멈춥니다."],
+        scale: "15회씩 3세트가 쉬워지면 백팩을 안고 고블렛 스쿼트처럼 진행하세요.",
+      },
+      {
+        id: "glute-bridge",
+        level: "후면 보완",
+        name: "글루트 브릿지",
+        target: "둔근, 햄스트링, 허리 안정성",
+        reps: "10-15회",
+        sets: 3,
+        rest: 60,
+        image: "assets/glute-bridge.svg",
+        equipment: "매트",
+        notes: ["엉덩이로 들어 올리기", "허리 과신전 금지"],
+        intro:
+          "스쿼트만으로 부족하기 쉬운 엉덩이와 몸 뒤쪽 근육을 보완합니다. 오래 앉아 있는 사람에게 특히 좋은 초보자 하체 운동입니다.",
+        steps: ["무릎을 세우고 누워 발을 골반 너비로 둡니다.", "갈비뼈를 내리고 배에 가볍게 힘을 줍니다.", "엉덩이를 조여 골반을 들어 올린 뒤 천천히 내립니다."],
+        watch: ["허리로 꺾어 올리지 않습니다.", "무릎이 바깥이나 안쪽으로 크게 벌어지지 않게 합니다."],
+        scale: "15회씩 3세트가 쉬우면 상단에서 2초 멈추거나 백팩을 골반 위에 올립니다.",
       },
     ],
   },
 ];
 
-const appVersion = "2.0.0";
-const assetVersion = "youtube-frames-20260630";
+const appVersion = "2.1.0";
+const assetVersion = "beginner-routine-20260702";
 const storagePrefix = "workoutPatternCoach:";
 const settingsKey = `${storagePrefix}settings`;
 const userKey = `${storagePrefix}userId`;
@@ -171,8 +174,68 @@ const exercises = routineGroups.flatMap((group, groupIndex) =>
     order: exerciseIndex,
   }))
 );
-const exerciseById = new Map(exercises.map((exercise) => [exercise.id, exercise]));
+
+const archivedExercises = [
+  {
+    id: "pushup-standard",
+    name: "일반 푸쉬업",
+    reps: "10-15회",
+    sets: 3,
+    group: { id: "chest", name: "가슴", subtitle: "이전 루틴", accent: "#ef5b4c", order: 90 },
+    order: 0,
+  },
+  {
+    id: "pushup-decline",
+    name: "디클라인 푸쉬업",
+    reps: "8-12회",
+    sets: 3,
+    group: { id: "chest", name: "가슴", subtitle: "이전 루틴", accent: "#ef5b4c", order: 91 },
+    order: 1,
+  },
+  {
+    id: "lat-pulldown",
+    name: "비하인드 랫 풀다운",
+    reps: "15회",
+    sets: 3,
+    group: { id: "back", name: "등", subtitle: "이전 루틴", accent: "#119a8d", order: 92 },
+    order: 0,
+  },
+  {
+    id: "superman-crunch",
+    name: "전신 크런치",
+    reps: "15회",
+    sets: 3,
+    group: { id: "abs", name: "복근", subtitle: "이전 루틴", accent: "#6a5acd", order: 93 },
+    order: 0,
+  },
+  {
+    id: "side-toe-touch",
+    name: "사이드 토터치",
+    reps: "왕복 15회",
+    sets: 3,
+    group: { id: "abs", name: "복근", subtitle: "이전 루틴", accent: "#6a5acd", order: 94 },
+    order: 1,
+  },
+];
+
+const legacyExerciseMigrationOrder = [
+  "pushup-standard",
+  "pushup-decline",
+  "pushup-incline",
+  "lat-pulldown",
+  "bent-over-row",
+  "side-lateral-raise",
+  "superman-crunch",
+  "side-toe-touch",
+  "bodyweight-squat",
+];
+const exerciseDefinitions = [...exercises, ...archivedExercises];
+const exerciseById = new Map(exerciseDefinitions.map((exercise) => [exercise.id, exercise]));
 const exerciseIndexById = new Map(exercises.map((exercise, index) => [exercise.id, index]));
+const archivedExerciseIndexById = new Map(
+  archivedExercises.map((exercise, index) => [exercise.id, exercises.length + index])
+);
+const activeExerciseIdSet = new Set(exercises.map((exercise) => exercise.id));
 const totalSets = exercises.reduce((sum, exercise) => sum + exercise.sets, 0);
 const todayKey = getLocalDateKey(new Date());
 const storageKey = getStorageKey(todayKey);
@@ -194,6 +257,7 @@ const els = {
   totalProgressText: document.querySelector("#totalProgressText"),
   progressBar: document.querySelector("#progressBar"),
   sequenceList: document.querySelector("#sequenceList"),
+  exerciseInfoBtn: document.querySelector("#exerciseInfoBtn"),
   exerciseImage: document.querySelector("#exerciseImage"),
   groupPill: document.querySelector("#groupPill"),
   levelPill: document.querySelector("#levelPill"),
@@ -240,6 +304,16 @@ const els = {
   pullRemoteBtn: document.querySelector("#pullRemoteBtn"),
   syncStatusText: document.querySelector("#syncStatusText"),
   syncQueueText: document.querySelector("#syncQueueText"),
+  exerciseInfoDialog: document.querySelector("#exerciseInfoDialog"),
+  exerciseInfoCloseBtn: document.querySelector("#exerciseInfoCloseBtn"),
+  exerciseInfoImage: document.querySelector("#exerciseInfoImage"),
+  exerciseInfoTitle: document.querySelector("#exerciseInfoTitle"),
+  exerciseInfoSubtitle: document.querySelector("#exerciseInfoSubtitle"),
+  exerciseInfoSummary: document.querySelector("#exerciseInfoSummary"),
+  exerciseInfoMeta: document.querySelector("#exerciseInfoMeta"),
+  exerciseInfoSteps: document.querySelector("#exerciseInfoSteps"),
+  exerciseInfoWatch: document.querySelector("#exerciseInfoWatch"),
+  exerciseInfoScale: document.querySelector("#exerciseInfoScale"),
 };
 
 function getStorageKey(dateKey) {
@@ -424,10 +498,11 @@ function migrateLegacyState(saved, dateKey) {
   const repsHistory = saved.repsHistory && typeof saved.repsHistory === "object" ? saved.repsHistory : {};
 
   Object.entries(repsHistory).forEach(([legacyIndex, reps]) => {
-    const exercise = exercises[Number(legacyIndex)];
+    const legacyExerciseId = legacyExerciseMigrationOrder[Number(legacyIndex)];
+    const exercise = exerciseById.get(legacyExerciseId) || exercises[Number(legacyIndex)];
     if (!exercise || !Array.isArray(reps)) return;
     reps.forEach((rep, setIndex) => {
-      const globalSetNumber = getSetsBefore(Number(legacyIndex)) + setIndex + 1;
+      const globalSetNumber = getLegacySetsBefore(Number(legacyIndex)) + setIndex + 1;
       const wasActuallyReached = saved.completed || legacyCompletedSets >= globalSetNumber;
       if (!wasActuallyReached) return;
       const record = createSetRecord({
@@ -514,6 +589,13 @@ function getSetsBefore(index) {
   return exercises.slice(0, index).reduce((sum, exercise) => sum + exercise.sets, 0);
 }
 
+function getLegacySetsBefore(index) {
+  return legacyExerciseMigrationOrder.slice(0, index).reduce((sum, exerciseId) => {
+    const exercise = exerciseById.get(exerciseId);
+    return sum + (exercise?.sets || 0);
+  }, 0);
+}
+
 function formatTime(seconds) {
   const safeSeconds = Math.max(0, Math.trunc(seconds || 0));
   const minutes = Math.floor(safeSeconds / 60);
@@ -539,9 +621,10 @@ function getLocalDateKeyForDayOfWeek(targetDayOfWeek) {
   return getLocalDateKey(targetDate);
 }
 
-function getCompletedRecordMap(dateState = state) {
+function getCompletedRecordMap(dateState = state, activeOnly = false) {
   const map = new Map();
   dateState.setRecords.forEach((record) => {
+    if (activeOnly && !activeExerciseIdSet.has(record.exerciseId)) return;
     const key = getSetKey(record.exerciseId, record.setNumber);
     map.set(key, record);
   });
@@ -552,8 +635,12 @@ function getSetKey(exerciseId, setNumber) {
   return `${exerciseId}:${setNumber}`;
 }
 
-function getCompletedSetCount(dateState = state) {
-  return getCompletedRecordMap(dateState).size;
+function getCompletedSetCount(dateState = state, activeOnly = false) {
+  return getCompletedRecordMap(dateState, activeOnly).size;
+}
+
+function getCompletedActiveSetCount(dateState = state) {
+  return getCompletedSetCount(dateState, true);
 }
 
 function getCompletedCountForExercise(exerciseId, dateState = state) {
@@ -602,8 +689,8 @@ function isDateCompleted(dateKey) {
 }
 
 function compareRecords(a, b) {
-  const orderA = exerciseIndexById.get(a.exerciseId) ?? 999;
-  const orderB = exerciseIndexById.get(b.exerciseId) ?? 999;
+  const orderA = exerciseIndexById.get(a.exerciseId) ?? archivedExerciseIndexById.get(a.exerciseId) ?? 999;
+  const orderB = exerciseIndexById.get(b.exerciseId) ?? archivedExerciseIndexById.get(b.exerciseId) ?? 999;
   if (orderA !== orderB) return orderA - orderB;
   return a.setNumber - b.setNumber;
 }
@@ -712,18 +799,23 @@ function renderHistory() {
 
   els.dailyHistoryView.innerHTML = historyData
     .map((day) => {
-      const detailsHtml = exercises
-        .map((exercise) => {
-          const records = day.setRecords
-            .filter((record) => record.exerciseId === exercise.id)
-            .sort((a, b) => a.setNumber - b.setNumber);
-          if (!records.length) return "";
+      const recordsByExercise = new Map();
+      [...day.setRecords].sort(compareRecords).forEach((record) => {
+        if (!recordsByExercise.has(record.exerciseId)) recordsByExercise.set(record.exerciseId, []);
+        recordsByExercise.get(record.exerciseId).push(record);
+      });
+      const detailsHtml = [...recordsByExercise.entries()]
+        .map(([exerciseId, records]) => {
+          const exercise = exerciseById.get(exerciseId);
+          const firstRecord = records[0] || {};
+          const groupName = firstRecord.groupName || exercise?.group?.name || "기록";
+          const exerciseName = firstRecord.exerciseName || exercise?.name || exerciseId;
           const repsChips = records
             .map((record) => `<span class="history-rep-chip">${record.setNumber}S: ${record.reps}회</span>`)
             .join("");
           return `
             <div class="history-exercise-item">
-              <strong class="history-exercise-name">${escapeHtml(exercise.group.name)} · ${escapeHtml(exercise.name)}</strong>
+              <strong class="history-exercise-name">${escapeHtml(groupName)} · ${escapeHtml(exerciseName)}</strong>
               <div class="history-reps-list">${repsChips}</div>
             </div>
           `;
@@ -732,7 +824,7 @@ function renderHistory() {
 
       const stampHtml = day.completed
         ? `<span class="stamp-badge"><i data-lucide="trophy"></i> 완료</span>`
-        : `<span class="history-rep-chip">${day.completedSets}/${totalSets}세트 진행</span>`;
+        : `<span class="history-rep-chip">${day.completedSets}세트 진행</span>`;
       const [, month, date] = day.date.split("-");
       const formattedDate = `${month}월 ${date}일`;
       return `
@@ -901,6 +993,7 @@ function renderExercise() {
   document.documentElement.style.setProperty("--accent", exercise.group.accent);
   els.exerciseImage.src = `${exercise.image}?v=${assetVersion}`;
   els.exerciseImage.alt = exercise.name;
+  els.exerciseInfoBtn.setAttribute("aria-label", `${exercise.name} 운동 소개 열기`);
   els.groupPill.textContent = `${exercise.group.name} · ${exercise.group.subtitle}`;
   els.groupPill.style.background = exercise.group.accent;
   els.levelPill.textContent = exercise.level;
@@ -908,7 +1001,7 @@ function renderExercise() {
   els.exerciseName.classList.toggle("long-name", exercise.name.length >= 8);
   els.targetText.textContent = exercise.target;
   els.repsText.textContent = exercise.reps;
-  els.setText.textContent = `${state.setNumber} / ${exercise.sets} 세트`;
+  els.setText.textContent = `${state.setNumber} / ${exercise.sets} 세트 목표`;
   els.restText.textContent = `${exercise.rest}초`;
   els.noteList.innerHTML = exercise.notes.map((note) => `<span>${escapeHtml(note)}</span>`).join("");
   els.repInput.value = getRepsForCurrentSet();
@@ -928,27 +1021,25 @@ function updateTimerProgress() {
 
 function renderTimer() {
   const exercise = getCurrentExercise();
-  const completedCount = getCompletedSetCount();
+  const completedCount = getCompletedActiveSetCount();
   const progress = Math.round((completedCount / totalSets) * 100);
   els.progressBar.style.width = `${progress}%`;
   els.totalProgressText.textContent = `${completedCount} / ${totalSets} 세트`;
   els.timerBoard.classList.toggle("is-rest", state.phase === "rest");
   els.timerBoard.classList.toggle("is-complete", state.phase === "complete");
+  els.timerText.textContent = formatStopwatchTime(state.sessionSeconds);
 
   if (state.phase === "complete") {
     els.phaseLabel.textContent = "완료";
-    els.timerText.textContent = "끝";
     els.nextCue.textContent = "오늘 루틴 완료";
   } else if (state.phase === "rest") {
-    els.phaseLabel.textContent = "휴식";
-    els.timerText.textContent = formatTime(state.restRemaining);
+    els.phaseLabel.textContent = state.running ? "휴식 중" : "휴식 대기";
     els.nextCue.textContent =
       state.setNumber < exercise.sets
-        ? `다음: ${exercise.name} ${state.setNumber + 1}세트`
-        : `다음: ${exercises[state.exerciseIndex + 1]?.name ?? "마무리"}`;
+        ? `휴식 ${formatTime(state.restRemaining)} 남음 · 다음: ${exercise.name} ${state.setNumber + 1}세트`
+        : `휴식 ${formatTime(state.restRemaining)} 남음 · 다음: ${exercises[state.exerciseIndex + 1]?.name ?? "마무리"}`;
   } else {
-    els.phaseLabel.textContent = state.running ? "운동 중" : "대기";
-    els.timerText.textContent = formatTime(state.workSeconds);
+    els.phaseLabel.textContent = state.running ? "전체 운동 중" : "전체 시간 대기";
     els.nextCue.textContent = `${exercise.reps} · ${state.setNumber}/${exercise.sets}세트`;
   }
 
@@ -959,7 +1050,7 @@ function renderTimer() {
     els.totalStopwatchText.innerHTML = `<i data-lucide="clock"></i> <span class="stopwatch-time">${formatStopwatchTime(state.sessionSeconds)}</span>`;
   }
 
-  const startLabel = state.running ? "일시정지" : state.phase === "rest" ? "휴식 시작" : "시작";
+  const startLabel = state.running ? "일시정지" : state.sessionSeconds > 0 ? "계속" : "시작";
   els.startPauseBtn.innerHTML = `<i data-lucide="${state.running ? "pause" : "play"}"></i><span>${startLabel}</span>`;
   els.completeSetBtn.disabled = state.phase === "rest" || state.phase === "complete";
   els.skipRestBtn.disabled = state.phase !== "rest";
@@ -971,7 +1062,7 @@ function renderTimer() {
     els.finishWorkoutBtn.style.opacity = "0.7";
   } else {
     els.finishWorkoutBtn.disabled = false;
-    els.finishWorkoutBtn.querySelector("span").textContent = "오늘 운동 완료하기";
+    els.finishWorkoutBtn.querySelector("span").textContent = "성공한 세트로 오늘 완료";
     els.finishWorkoutBtn.style.opacity = "1";
   }
 }
@@ -1230,17 +1321,17 @@ function completeSet() {
 
   upsertRecord(state, record);
   state.inputReps[getInputKey(exercise.id, state.setNumber)] = reps;
-  state.workSeconds = 0;
-  state.running = false;
+  const keepTimerRunning = state.running;
 
-  const completedCount = getCompletedSetCount();
+  const completedCount = getCompletedActiveSetCount();
   if (completedCount >= totalSets) {
     state.phase = "complete";
     state.completed = true;
+    state.running = false;
   } else {
     state.phase = "rest";
     state.restRemaining = exercise.rest;
-    state.running = true;
+    state.running = keepTimerRunning;
   }
 
   queueSync("upsertSetLog", record);
@@ -1252,6 +1343,7 @@ function completeSet() {
 
 function advanceAfterRest() {
   const exercise = getCurrentExercise();
+  const keepTimerRunning = state.running;
   const nextSetInExercise = findNextIncompleteSetNumber(exercise, state.setNumber);
   if (nextSetInExercise) {
     state.setNumber = nextSetInExercise;
@@ -1260,9 +1352,8 @@ function advanceAfterRest() {
     state.exerciseIndex = nextPosition.exerciseIndex;
     state.setNumber = nextPosition.setNumber;
   }
-  state.phase = "ready";
-  state.running = false;
-  state.workSeconds = 0;
+  state.phase = keepTimerRunning ? "work" : "ready";
+  state.running = keepTimerRunning;
   state.restRemaining = 0;
   render();
 }
@@ -1270,9 +1361,7 @@ function advanceAfterRest() {
 function jumpToExercise(index) {
   state.exerciseIndex = clampNumber(index, 0, exercises.length - 1, 0);
   state.setNumber = getFirstIncompleteSetNumber(getCurrentExercise());
-  state.phase = "ready";
-  state.running = false;
-  state.workSeconds = 0;
+  state.phase = state.running ? "work" : "ready";
   state.restRemaining = 0;
   render();
 }
@@ -1285,7 +1374,7 @@ function resetWorkout() {
 }
 
 function completeWorkout() {
-  if (!confirm("오늘 운동을 완료하고 기록하시겠습니까?")) return;
+  if (!confirm("성공한 세트만 기록한 상태로 오늘 운동을 완료할까요? 1-2세트만 해도 괜찮습니다.")) return;
   state.phase = "complete";
   state.completed = true;
   state.running = false;
@@ -1317,7 +1406,7 @@ function buildDailySummary(dateState = state) {
     date: dateState.date,
     completed: Boolean(dateState.completed),
     totalSets,
-    completedSets: getCompletedSetCount(dateState),
+    completedSets: getCompletedActiveSetCount(dateState),
     sessionSeconds: dateState.sessionSeconds || 0,
     updatedAt: new Date().toISOString(),
     stateJson: JSON.stringify({
@@ -1719,16 +1808,14 @@ function downloadBlob(content, type, filename) {
 
 function tick() {
   if (!state.running) return;
+  state.sessionSeconds += 1;
   if (state.phase === "rest") {
     state.restRemaining -= 1;
     if (state.restRemaining <= 0) {
       advanceAfterRest();
       return;
     }
-  } else if (state.phase === "work") {
-    state.workSeconds += 1;
   }
-  state.sessionSeconds += 1;
   renderTimer();
   updateTimerProgress();
   saveState();
@@ -1741,6 +1828,42 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function renderInfoList(items) {
+  return (items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+}
+
+function openExerciseInfo() {
+  const exercise = getCurrentExercise();
+  els.exerciseInfoImage.src = `${exercise.image}?v=${assetVersion}`;
+  els.exerciseInfoImage.alt = exercise.name;
+  els.exerciseInfoTitle.textContent = exercise.name;
+  els.exerciseInfoSubtitle.textContent = `${exercise.group.name} · ${exercise.target}`;
+  els.exerciseInfoSummary.textContent = exercise.intro || "자세를 유지할 수 있는 범위에서 천천히 진행하세요.";
+  els.exerciseInfoMeta.innerHTML = [
+    `<span><i data-lucide="repeat"></i>${escapeHtml(exercise.reps)} · 목표 ${exercise.sets}세트</span>`,
+    `<span><i data-lucide="timer"></i>휴식 ${exercise.rest}초</span>`,
+    `<span><i data-lucide="package"></i>${escapeHtml(exercise.equipment || "맨몸")}</span>`,
+  ].join("");
+  els.exerciseInfoSteps.innerHTML = renderInfoList(exercise.steps);
+  els.exerciseInfoWatch.innerHTML = renderInfoList(exercise.watch);
+  els.exerciseInfoScale.textContent = exercise.scale || "처음엔 1세트만 정확히 끝내고, 여유가 생기면 2세트와 3세트로 늘리세요.";
+
+  if (typeof els.exerciseInfoDialog.showModal === "function") {
+    els.exerciseInfoDialog.showModal();
+  } else {
+    els.exerciseInfoDialog.setAttribute("open", "");
+  }
+  refreshIcons();
+}
+
+function closeExerciseInfo() {
+  if (typeof els.exerciseInfoDialog.close === "function") {
+    els.exerciseInfoDialog.close();
+  } else {
+    els.exerciseInfoDialog.removeAttribute("open");
+  }
 }
 
 function formatShortDateTime(isoText) {
@@ -1757,6 +1880,11 @@ els.repDecBtn.addEventListener("click", () => adjustReps(-1));
 els.repIncBtn.addEventListener("click", () => adjustReps(1));
 els.repInput.addEventListener("input", () => setCurrentInputReps(els.repInput.value));
 els.finishWorkoutBtn.addEventListener("click", completeWorkout);
+els.exerciseInfoBtn.addEventListener("click", openExerciseInfo);
+els.exerciseInfoCloseBtn.addEventListener("click", closeExerciseInfo);
+els.exerciseInfoDialog.addEventListener("click", (event) => {
+  if (event.target === els.exerciseInfoDialog) closeExerciseInfo();
+});
 els.clearHistoryBtn.addEventListener("click", clearAllHistory);
 els.tabDailyBtn.addEventListener("click", () => switchTab("daily"));
 els.tabCalendarBtn.addEventListener("click", () => switchTab("calendar"));

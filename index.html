@@ -95,7 +95,13 @@
           <!-- 운동 안내 카드 -->
           <div class="exercise-card">
             <div class="exercise-visual">
-              <img id="exerciseImage" alt="" />
+              <button class="exercise-visual-button" id="exerciseInfoBtn" type="button">
+                <img id="exerciseImage" alt="" />
+                <span class="visual-hint">
+                  <i data-lucide="info"></i>
+                  운동 소개
+                </span>
+              </button>
             </div>
             <div class="exercise-detail">
               <div class="group-row">
@@ -128,7 +134,7 @@
           <!-- 오늘 운동 조기 완료 버튼 -->
           <button id="finishWorkoutBtn" class="finish-workout-btn" type="button">
             <i data-lucide="trophy"></i>
-            <span>오늘 운동 완료하기</span>
+            <span>성공한 세트로 오늘 완료</span>
           </button>
         </section>
 
@@ -225,5 +231,35 @@
         </aside>
       </main>
     </div>
+    <dialog class="exercise-dialog" id="exerciseInfoDialog" aria-labelledby="exerciseInfoTitle">
+      <div class="exercise-dialog-shell">
+        <button class="dialog-close-btn" id="exerciseInfoCloseBtn" type="button" aria-label="운동 소개 닫기">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="exercise-dialog-media">
+          <img id="exerciseInfoImage" alt="" />
+        </div>
+        <div class="exercise-dialog-body">
+          <p id="exerciseInfoSubtitle" class="dialog-kicker"></p>
+          <h2 id="exerciseInfoTitle"></h2>
+          <p id="exerciseInfoSummary"></p>
+          <div class="dialog-meta" id="exerciseInfoMeta"></div>
+          <div class="dialog-columns">
+            <section>
+              <h3>방법</h3>
+              <ol id="exerciseInfoSteps"></ol>
+            </section>
+            <section>
+              <h3>주의</h3>
+              <ul id="exerciseInfoWatch"></ul>
+            </section>
+          </div>
+          <div class="dialog-scale">
+            <h3>초보자 조절</h3>
+            <p id="exerciseInfoScale"></p>
+          </div>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
