@@ -234,6 +234,11 @@ h1 {
   background: #f5f9fe;
 }
 
+.sequence-item.is-optional {
+  background: #f7faf8;
+  border-style: dashed;
+}
+
 .sequence-item.is-active {
   background: #10151f;
   color: #fff;

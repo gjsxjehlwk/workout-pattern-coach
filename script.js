@@ -2,65 +2,86 @@ const routineGroups = [
   {
     id: "chest",
     name: "가슴",
-    subtitle: "푸시업",
+    subtitle: "필수 2종",
     accent: "#ef5b4c",
     exercises: [
       {
         id: "pushup-standard",
         level: "기본",
-        name: "일반 푸쉬업",
+        name: "푸쉬업바 일반 푸쉬업",
+        sequence: 1,
         target: "가슴, 삼두, 코어",
         reps: "8-15회",
         sets: 3,
         rest: 60,
-        image: "assets/pushup-standard.png",
-        equipment: "맨몸, 푸시업바 선택",
-        notes: ["몸통 일직선 유지", "가슴을 바닥 쪽으로"],
+        image: "assets/pushup-bar-pushup.webp",
+        equipment: "푸쉬업바",
+        notes: ["필수 운동", "손목 중립", "몸통 일직선"],
         intro:
-          "가슴 운동의 기본입니다. 몸 전체를 한 덩어리로 유지하면서 가슴, 삼두, 코어를 함께 씁니다.",
-        steps: ["손을 어깨보다 약간 넓게 짚습니다.", "머리부터 발뒤꿈치까지 일직선을 만듭니다.", "가슴을 천천히 내린 뒤 바닥을 밀어 올립니다."],
+          "푸쉬업바를 잡고 하는 기본 가슴 운동입니다. 손목 부담을 줄이면서 가슴, 삼두, 코어를 함께 씁니다.",
+        steps: [
+          "시작: 푸쉬업바를 어깨보다 약간 넓게 두고 머리부터 발뒤꿈치까지 일직선을 만듭니다.",
+          "내릴 때: 팔꿈치를 몸통에서 45도 정도로 유지하며 가슴을 바닥 쪽으로 천천히 내립니다.",
+          "도착: 가슴이 바닥과 가까워지고 어깨가 앞으로 말리지 않는 지점에서 멈춥니다.",
+          "올릴 때: 손잡이를 바닥으로 밀어 가슴과 삼두 힘으로 몸 전체를 한 덩어리처럼 올립니다.",
+          "느낌: 가슴 중앙과 삼두에 힘이 들어오고 배와 엉덩이는 몸통을 고정하는 느낌이면 좋습니다.",
+        ],
         watch: ["허리가 아래로 처지지 않게 배와 엉덩이에 힘을 줍니다.", "팔꿈치가 어깨선까지 과하게 벌어지지 않게 합니다."],
-        scale: "8회가 어렵다면 무릎 푸쉬업으로 줄이고, 15회씩 3세트가 쉬워지면 디클라인 푸쉬업 비중을 늘리세요.",
+        scale: "8회가 어렵다면 무릎 푸쉬업바 푸쉬업으로 줄이고, 15회씩 3세트가 쉬워지면 내려가는 속도를 더 천천히 하세요.",
       },
       {
-        id: "pushup-decline",
-        level: "상부 가슴",
-        name: "디클라인 푸쉬업",
-        target: "가슴 상부, 어깨 전면, 삼두",
-        reps: "6-12회",
+        id: "dumbbell-floor-press",
+        level: "필수 보완",
+        name: "덤벨 플로어 프레스",
+        sequence: 2,
+        target: "가슴, 삼두, 어깨 전면",
+        reps: "8-12회",
         sets: 3,
         rest: 60,
-        image: "assets/pushup-decline.png",
-        equipment: "튼튼한 의자, 벤치",
-        notes: ["발을 의자에 올림", "허리 꺾임 주의"],
+        image: "assets/dumbbell-floor-press.webp",
+        equipment: "7kg 덤벨 2개, 매트 또는 수건",
+        notes: ["필수 운동", "바닥에서 누워 밀기", "팔꿈치 과하강 방지"],
         intro:
-          "발을 높여 가슴 상부와 어깨 전면의 부담을 늘리는 푸쉬업 변형입니다. 일반 푸쉬업보다 난도가 높습니다.",
-        steps: ["발등이나 발끝을 의자 위에 올립니다.", "몸통을 일직선으로 고정합니다.", "가슴을 바닥 쪽으로 내렸다가 팔로 밀어 올립니다."],
-        watch: ["의자가 미끄러지지 않는지 먼저 확인합니다.", "허리가 꺾이거나 어깨가 찌릿하면 일반 푸쉬업으로 바꿉니다."],
-        scale: "6회 미만으로 자세가 무너지면 발 높이를 낮추거나 일반 푸쉬업 1세트로 대체하세요.",
+          "벤치 없이 바닥에서 하는 덤벨 프레스입니다. 푸쉬업과 다른 각도로 가슴을 밀어 주며, 바닥이 팔꿈치 과하강을 막아 초보자가 자세를 잡기 좋습니다.",
+        steps: [
+          "시작: 무릎을 세우고 바닥에 누워 덤벨을 가슴 옆에 둔 뒤 손목을 팔꿈치 위에 맞춥니다.",
+          "밀 때: 덤벨을 가슴 위쪽으로 수직에 가깝게 밀어 올리며 팔꿈치가 옆으로 과하게 벌어지지 않게 합니다.",
+          "도착: 덤벨이 가슴 위에서 서로 너무 부딪히지 않는 지점, 팔꿈치가 살짝 남은 지점에서 멈춥니다.",
+          "내릴 때: 팔꿈치가 바닥에 가볍게 닿기 전까지 천천히 내리고 어깨가 으쓱하지 않게 합니다.",
+          "느낌: 가슴 앞쪽이 밀어내고 삼두가 보조하며, 어깨 앞쪽 통증 없이 안정적인 압력이 느껴져야 합니다.",
+        ],
+        watch: ["허리를 크게 띄우지 말고 갈비뼈가 들리지 않게 합니다.", "어깨 앞쪽이 찌릿하면 가동 범위를 줄이거나 무게를 내려놓습니다."],
+        scale: "7kg이 무겁다면 반복 수를 6-8회로 낮추고, 12회씩 3세트가 편해지면 내려가는 속도를 3초로 늦추세요.",
       },
     ],
   },
   {
     id: "back",
     name: "등",
-    subtitle: "넓이 · 두께",
+    subtitle: "필수 2종",
     accent: "#119a8d",
     exercises: [
       {
         id: "band-lat-pulldown",
         level: "상단 고정",
         name: "밴드 랫 풀다운",
+        sequence: 3,
         target: "광배근, 등 넓이",
         reps: "10-15회",
         sets: 3,
         rest: 60,
         image: "assets/band-lat-pulldown.gif",
-        equipment: "고리형 밴드, 상단 고정점",
-        notes: ["밴드 고정점 확인", "목 뒤가 아닌 가슴 앞으로"],
+        equipment: "튜빙밴드, 도어앵커",
+        notes: ["필수 운동", "상단 고정점 확인", "목 뒤가 아닌 가슴 앞으로"],
         intro:
-          "고리형 밴드를 높은 곳에 고정하고 팔꿈치를 아래로 당겨 광배근을 쓰는 등 운동입니다. 비하인드 랫 풀다운보다 어깨 부담이 적습니다.",
-        steps: ["밴드를 문고리 앵커나 높은 고정점에 단단히 겁니다.", "팔을 위로 뻗어 밴드를 잡고 가슴을 살짝 듭니다.", "팔꿈치를 옆구리 방향으로 끌어내린 뒤 천천히 되돌립니다."],
+          "튜빙밴드를 높은 곳에 고정하고 팔꿈치를 아래로 당겨 광배근을 쓰는 등 넓이 운동입니다. 집에서 위에서 아래로 당기는 자극을 만들기 좋습니다.",
+        steps: [
+          "시작: 도어앵커를 문 위쪽에 고정하고 팔을 위로 뻗어 밴드 손잡이를 잡은 뒤 가슴을 살짝 듭니다.",
+          "당길 때: 손으로만 당기지 말고 팔꿈치를 옆구리와 바지 주머니 방향으로 끌어내립니다.",
+          "도착: 손이 가슴 앞쪽 또는 어깨 아래쪽에 오고, 겨드랑이 아래 등 근육이 조이는 지점에서 멈춥니다.",
+          "올릴 때: 팔을 위로 천천히 되돌리되 어깨가 귀 쪽으로 딸려 올라가지 않게 버팁니다.",
+          "느낌: 팔보다 겨드랑이 아래 광배근이 먼저 조이고, 목 뒤나 승모근이 뻐근하지 않아야 합니다.",
+        ],
         watch: ["고정점이 풀리지 않는지 매 세트 전에 확인합니다.", "목 뒤로 당기지 말고 가슴 앞쪽으로 당깁니다."],
         scale: "너무 쉽다면 밴드를 짧게 잡거나 한 걸음 뒤로 가고, 너무 어렵다면 무릎을 세우고 가까이에서 시작하세요.",
       },
@@ -68,83 +89,112 @@ const routineGroups = [
         id: "bent-over-row",
         level: "초보 기본",
         name: "벤트오버 로우",
+        sequence: 4,
         target: "광배근, 등 중부",
         reps: "10-15회",
         sets: 3,
         rest: 60,
         image: "assets/bent-row.png",
-        equipment: "물병, 백팩, 덤벨",
-        notes: ["가슴을 열고 팔꿈치를 뒤로", "허리 중립 유지"],
+        equipment: "7kg 덤벨 2개",
+        notes: ["필수 운동", "상체 약 45도", "팔꿈치를 뒤 주머니로"],
         intro:
-          "집에서 등 두께를 만들기 좋은 기본 당기기 운동입니다. 가벼운 물병부터 시작해도 충분합니다.",
-        steps: ["엉덩이를 뒤로 빼며 상체를 살짝 숙입니다.", "등을 평평하게 유지하고 배에 힘을 줍니다.", "팔꿈치를 뒤로 보내며 손을 옆구리 쪽으로 당깁니다."],
+          "7kg 덤벨로 등 두께를 만드는 기본 당기기 운동입니다. 상체 각도를 고정하고 팔꿈치를 뒤로 보내는 감각이 핵심입니다.",
+        steps: [
+          "시작: 엉덩이를 뒤로 빼며 상체를 약 45도 숙이고, 등은 평평하게 둔 채 덤벨을 정강이 앞쪽에 둡니다.",
+          "당길 때: 덤벨을 45도 방향 그대로 끌기보다 팔꿈치를 뒤 주머니로 보낸다는 느낌으로 옆구리 쪽으로 당깁니다.",
+          "도착: 덤벨이 배꼽 옆 또는 옆구리 근처에 오고, 견갑골이 가볍게 모이는 지점에서 멈춥니다.",
+          "내릴 때: 팔만 툭 떨어뜨리지 말고 덤벨을 정강이 앞쪽으로 천천히 되돌리며 상체 각도를 유지합니다.",
+          "느낌: 허리보다 등 중부와 겨드랑이 아래쪽이 당겨지고, 목은 편안하게 바닥 앞을 보는 느낌이면 좋습니다.",
+        ],
         watch: ["허리가 둥글게 말리면 무게를 줄입니다.", "목을 들지 말고 시선은 바닥 앞쪽에 둡니다."],
-        scale: "15회씩 3세트가 쉬워지면 물병 무게를 늘리거나 저항밴드 로우를 추가하세요.",
+        scale: "7kg이 무겁게 느껴지면 한쪽씩 원암 로우로 바꾸고, 15회씩 3세트가 쉬워지면 상단에서 1초 멈추세요.",
       },
     ],
   },
   {
     id: "shoulder",
     name: "어깨",
-    subtitle: "측면",
+    subtitle: "필수 1종",
     accent: "#d89a18",
     exercises: [
       {
-        id: "side-lateral-raise",
-        level: "초보 기본",
-        name: "사이드 레터럴 레이즈",
+        id: "band-side-lateral-raise",
+        level: "필수 기본",
+        name: "밴드 사이드 레터럴 레이즈",
+        sequence: 5,
         target: "측면 어깨",
         reps: "12-20회",
         sets: 3,
         rest: 60,
-        image: "assets/lateral-raise.png",
-        equipment: "작은 물병, 가벼운 덤벨",
-        notes: ["가볍게, 천천히", "어깨 높이까지만"],
+        image: "assets/band-lateral-raise.webp",
+        equipment: "튜빙밴드",
+        notes: ["필수 운동", "가볍게, 천천히", "어깨 높이까지만"],
         intro:
-          "어깨 측면을 키우는 운동입니다. 초보자는 무게보다 자세와 천천히 내리는 감각이 더 중요합니다.",
-        steps: ["팔꿈치를 살짝 굽히고 양손을 몸 옆에 둡니다.", "어깨를 으쓱하지 않고 양팔을 옆으로 들어 올립니다.", "어깨 높이 부근에서 멈추고 천천히 내립니다."],
-        watch: ["반동으로 들어 올리지 않습니다.", "목이나 승모근이 먼저 힘들면 무게를 줄입니다."],
-        scale: "20회씩 3세트가 안정되면 아주 조금만 무게를 올리세요.",
+          "튜빙밴드로 어깨 측면을 천천히 들어 올리는 운동입니다. 7kg 덤벨 사레레보다 초보자에게 부담 조절이 쉽습니다.",
+        steps: [
+          "시작: 밴드 가운데를 발로 밟고 손잡이를 잡은 뒤 팔꿈치를 살짝 굽혀 손을 허벅지 옆에 둡니다.",
+          "올릴 때: 손보다 팔꿈치가 옆 벽을 밀고 나간다는 느낌으로 양팔을 옆으로 들어 올립니다.",
+          "도착: 손과 팔꿈치가 어깨 높이 부근에 오면 멈추고 어깨를 귀 쪽으로 으쓱하지 않습니다.",
+          "내릴 때: 밴드에 끌려 내려가지 말고 2-3초 동안 천천히 허벅지 옆으로 되돌립니다.",
+          "느낌: 목이 아니라 어깨 옆면이 뜨겁게 타는 느낌이 나고, 허리를 젖히거나 반동이 없어야 합니다.",
+        ],
+        watch: ["반동으로 들어 올리지 않습니다.", "목이나 승모근이 먼저 힘들면 밴드를 길게 잡아 저항을 줄입니다."],
+        scale: "20회씩 3세트가 안정되면 밴드를 조금 짧게 잡고, 목이 먼저 뻐근하면 반복 수보다 자세를 우선하세요.",
       },
     ],
   },
   {
     id: "abs",
     name: "복근",
-    subtitle: "AB슬라이드 · 옆구리",
+    subtitle: "필수 + 선택",
     accent: "#6a5acd",
     exercises: [
       {
         id: "ab-wheel-rollout",
-        level: "기본형",
-        name: "AB슬라이드 기본형",
+        level: "필수 기본",
+        name: "AB슬라이드",
+        sequence: 6,
         target: "복직근, 코어 안정성",
         reps: "5-10회",
         sets: 3,
         rest: 60,
         image: "assets/ab-wheel-rollout.webp",
         equipment: "AB슬라이드, 무릎 매트",
-        notes: ["복부 힘 유지", "허리 꺾이면 즉시 중단"],
+        notes: ["필수 운동", "복부 힘 유지", "허리 꺾이면 즉시 중단"],
         intro:
           "AB슬라이드는 복근이 몸통을 버티는 힘을 크게 요구합니다. 멀리 굴리는 것보다 허리가 안전한 범위를 지키는 것이 먼저입니다.",
-        steps: ["무릎을 매트에 대고 손잡이를 단단히 잡습니다.", "갈비뼈를 내리고 배와 엉덩이에 힘을 줍니다.", "허리가 버티는 거리까지만 굴린 뒤 복근으로 되돌아옵니다."],
+        steps: [
+          "시작: 무릎을 매트에 대고 AB슬라이드 손잡이를 잡은 뒤 갈비뼈를 내리고 배와 엉덩이에 힘을 줍니다.",
+          "밀 때: 팔만 뻗는 것이 아니라 몸통이 길어진다는 느낌으로 휠을 앞쪽으로 천천히 굴립니다.",
+          "도착: 허리가 꺾이기 직전이 아니라 복부 힘으로 버틸 수 있는 안전한 거리에서 멈춥니다.",
+          "당길 때: 손으로만 끌지 말고 배를 짧게 접는 느낌으로 휠을 무릎 쪽으로 되돌립니다.",
+          "느낌: 허리 통증이 아니라 배 앞쪽 전체가 강하게 버티고 떨리는 느낌이면 충분합니다.",
+        ],
         watch: ["허리가 아래로 꺾이면 즉시 범위를 줄입니다.", "어깨나 손목 통증이 있으면 그 세트는 중단합니다."],
         scale: "5회가 안정되면 8-10회로 늘리고, 그래도 쉽다면 굴리는 거리를 조금씩 늘리세요.",
       },
       {
         id: "side-plank-reach",
-        level: "옆구리",
+        level: "선택 옆구리",
         name: "사이드 플랭크 리치스루",
+        sequence: 8,
         target: "외복사근, 측면 코어",
         reps: "좌우 8-12회",
         sets: 3,
         rest: 45,
         image: "assets/side-plank-reach.png",
         equipment: "매트",
-        notes: ["골반 높이 유지", "허리 비틀림 과도 금지"],
+        optional: true,
+        notes: ["선택 운동", "골반 높이 유지", "허리 비틀림 과도 금지"],
         intro:
-          "사이드 플랭크 자세에서 팔을 몸 아래로 넣었다가 다시 여는 운동입니다. 옆구리와 몸통 회전 안정성을 함께 훈련합니다.",
-        steps: ["팔꿈치를 어깨 아래에 두고 옆으로 버팁니다.", "골반이 바닥으로 떨어지지 않게 옆구리에 힘을 줍니다.", "위쪽 팔을 몸 아래로 넣었다가 천장 방향으로 다시 엽니다."],
+          "필수 7종목 뒤 컨디션이 좋을 때 더하는 선택 복근 운동입니다. 옆구리와 몸통 회전 안정성을 함께 훈련합니다.",
+        steps: [
+          "시작: 팔꿈치를 어깨 아래에 두고 옆으로 버티며 머리부터 발까지 긴 선을 만듭니다.",
+          "당길 때: 위쪽 팔을 몸 아래 공간으로 천천히 넣으며 가슴과 몸통을 바닥 쪽으로 회전합니다.",
+          "도착: 골반이 떨어지지 않는 범위에서 옆구리가 늘어나는 지점까지만 들어갑니다.",
+          "돌아올 때: 위쪽 팔을 천장 방향으로 열며 몸통을 다시 정면 옆 자세로 세웁니다.",
+          "느낌: 아래쪽 옆구리가 버티고 위쪽 옆구리가 회전하며, 어깨 관절이 찝히지 않아야 합니다.",
+        ],
         watch: ["어깨가 아프면 정지 사이드 플랭크로 바꿉니다.", "허리를 크게 비틀기보다 몸통 전체를 천천히 회전합니다."],
         scale: "어렵다면 무릎을 바닥에 대고 진행하고, 쉬우면 정지 시간을 1-2초 추가하세요.",
       },
@@ -153,40 +203,55 @@ const routineGroups = [
   {
     id: "legs",
     name: "하체",
-    subtitle: "밴드 · 둔근",
+    subtitle: "필수 + 선택",
     accent: "#2e9d5b",
     exercises: [
       {
         id: "band-squat",
-        level: "하체 정렬",
+        level: "필수 하체",
         name: "밴드 스쿼트",
+        sequence: 7,
         target: "하체 전반, 둔근, 무릎 정렬",
         reps: "10-15회",
         sets: 3,
         rest: 60,
         image: "assets/band-squat.png",
         equipment: "고리형 밴드",
-        notes: ["무릎 위에 밴드", "무릎 안쪽 무너짐 방지"],
+        notes: ["필수 운동", "무릎 위에 밴드", "무릎 안쪽 무너짐 방지"],
         intro:
           "고리형 밴드를 무릎 위에 걸고 하는 스쿼트입니다. 밴드 저항 때문에 무릎 정렬과 둔근 사용을 더 의식하기 좋습니다.",
-        steps: ["밴드를 무릎 바로 위 허벅지에 겁니다.", "발을 어깨너비로 두고 무릎을 밴드에 맞서 살짝 바깥으로 유지합니다.", "엉덩이를 뒤로 보내며 앉았다가 발바닥 전체로 일어섭니다."],
+        steps: [
+          "시작: 고리형 밴드를 무릎 바로 위 허벅지에 걸고 발을 어깨너비로 둡니다.",
+          "내릴 때: 무릎을 밴드에 맞서 살짝 바깥으로 유지하며 엉덩이를 뒤로 보내 앉습니다.",
+          "도착: 허리가 말리기 전, 발바닥 전체가 바닥을 누르는 깊이에서 멈춥니다.",
+          "올릴 때: 발바닥 전체로 바닥을 밀며 무릎이 안쪽으로 모이지 않게 일어섭니다.",
+          "느낌: 허벅지 앞쪽만이 아니라 엉덩이 옆과 뒤쪽이 같이 켜지는 느낌이면 좋습니다.",
+        ],
         watch: ["무릎이 안쪽으로 모이면 깊이를 줄입니다.", "허리가 말리기 전까지만 내려갑니다."],
         scale: "15회씩 3세트가 쉬우면 천천히 내려가거나 하단에서 1초 멈추세요.",
       },
       {
         id: "band-glute-bridge",
-        level: "후면 보완",
+        level: "선택 둔근",
         name: "밴드 글루트 브릿지",
+        sequence: 9,
         target: "둔근, 햄스트링, 허리 안정성",
         reps: "10-15회",
         sets: 3,
         rest: 60,
         image: "assets/band-glute-bridge.png",
-        equipment: "고리형 밴드, 매트",
-        notes: ["무릎 위 밴드", "엉덩이로 들어 올리기"],
+        equipment: "고리형 밴드, 매트 또는 수건",
+        optional: true,
+        notes: ["선택 운동", "무릎 위 밴드", "엉덩이로 들어 올리기"],
         intro:
-          "누운 자세에서 엉덩이를 들어 올려 둔근을 쓰는 운동입니다. 밴드를 무릎 위에 걸면 무릎을 바깥으로 유지하며 엉덩이 자극을 더 느끼기 좋습니다.",
-        steps: ["밴드를 무릎 위에 걸고 누워 발을 골반 너비로 둡니다.", "갈비뼈를 내리고 배에 가볍게 힘을 줍니다.", "무릎을 살짝 바깥으로 밀며 엉덩이를 들어 올린 뒤 천천히 내립니다."],
+          "필수 하체 운동 뒤 컨디션이 좋을 때 더하는 선택 둔근 운동입니다. 매트가 없으면 두꺼운 수건을 등과 어깨 아래에 깔아도 됩니다.",
+        steps: [
+          "시작: 밴드를 무릎 위에 걸고 누워 발을 골반 너비로 둔 뒤 갈비뼈를 내리고 배에 가볍게 힘을 줍니다.",
+          "올릴 때: 무릎을 살짝 바깥으로 밀며 엉덩이를 천장 방향으로 들어 올립니다.",
+          "도착: 어깨, 골반, 무릎이 사선으로 이어지고 허리를 꺾지 않는 지점에서 1초 멈춥니다.",
+          "내릴 때: 엉덩이에 힘을 유지한 채 바닥으로 천천히 내려오고 무릎이 안쪽으로 모이지 않게 합니다.",
+          "느낌: 허리보다 엉덩이 아래쪽과 옆쪽이 조여야 하며, 허리 압박이 느껴지면 높이를 줄입니다.",
+        ],
         watch: ["허리로 꺾어 올리지 않습니다.", "상단에서 허리보다 엉덩이에 힘이 들어오는지 확인합니다."],
         scale: "15회씩 3세트가 쉬우면 상단에서 2초 멈추거나 밴드 저항을 높이세요.",
       },
@@ -194,8 +259,8 @@ const routineGroups = [
   },
 ];
 
-const appVersion = "2.2.1";
-const assetVersion = "user-assets-20260702";
+const appVersion = "2.3.0";
+const assetVersion = "beginner-equipment-20260702";
 const storagePrefix = "workoutPatternCoach:";
 const settingsKey = `${storagePrefix}settings`;
 const userKey = `${storagePrefix}userId`;
@@ -212,21 +277,36 @@ const weekLabels = [
   ["토", "Sat"],
 ];
 
-const exercises = routineGroups.flatMap((group, groupIndex) =>
-  group.exercises.map((exercise, exerciseIndex) => ({
+const exercises = routineGroups
+  .flatMap((group, groupIndex) =>
+    group.exercises.map((exercise, exerciseIndex) => ({
+      ...exercise,
+      group: {
+        id: group.id,
+        name: group.name,
+        subtitle: group.subtitle,
+        accent: group.accent,
+        order: groupIndex,
+      },
+      order: exerciseIndex,
+      fallbackSequence: groupIndex * 100 + exerciseIndex,
+    }))
+  )
+  .sort((a, b) => (a.sequence ?? a.fallbackSequence) - (b.sequence ?? b.fallbackSequence))
+  .map((exercise, order) => ({
     ...exercise,
-    group: {
-      id: group.id,
-      name: group.name,
-      subtitle: group.subtitle,
-      accent: group.accent,
-      order: groupIndex,
-    },
-    order: exerciseIndex,
-  }))
-);
+    order,
+  }));
 
 const archivedExercises = [
+  {
+    id: "pushup-decline",
+    name: "디클라인 푸쉬업",
+    reps: "6-12회",
+    sets: 3,
+    group: { id: "chest", name: "가슴", subtitle: "이전 루틴", accent: "#ef5b4c", order: 89 },
+    order: 0,
+  },
   {
     id: "pushup-incline",
     name: "인클라인 푸쉬업",
@@ -241,6 +321,14 @@ const archivedExercises = [
     reps: "15회",
     sets: 3,
     group: { id: "back", name: "등", subtitle: "이전 루틴", accent: "#119a8d", order: 91 },
+    order: 0,
+  },
+  {
+    id: "side-lateral-raise",
+    name: "사이드 레터럴 레이즈",
+    reps: "12-20회",
+    sets: 3,
+    group: { id: "shoulder", name: "어깨", subtitle: "이전 루틴", accent: "#d89a18", order: 92 },
     order: 0,
   },
   {
@@ -295,7 +383,11 @@ const archivedExerciseIndexById = new Map(
   archivedExercises.map((exercise, index) => [exercise.id, exercises.length + index])
 );
 const activeExerciseIdSet = new Set(exercises.map((exercise) => exercise.id));
-const totalSets = exercises.reduce((sum, exercise) => sum + exercise.sets, 0);
+const requiredExercises = exercises.filter((exercise) => !exercise.optional);
+const requiredExerciseIdSet = new Set(requiredExercises.map((exercise) => exercise.id));
+const requiredTotalSets = requiredExercises.reduce((sum, exercise) => sum + exercise.sets, 0);
+const allExerciseSets = exercises.reduce((sum, exercise) => sum + exercise.sets, 0);
+const totalSets = requiredTotalSets;
 const todayKey = getLocalDateKey(new Date());
 const storageKey = getStorageKey(todayKey);
 const settings = loadSettings();
@@ -702,6 +794,23 @@ function getCompletedActiveSetCount(dateState = state) {
   return getCompletedSetCount(dateState, true);
 }
 
+function getCompletedRequiredSetCount(dateState = state) {
+  const map = new Map();
+  dateState.setRecords.forEach((record) => {
+    if (!requiredExerciseIdSet.has(record.exerciseId)) return;
+    map.set(getSetKey(record.exerciseId, record.setNumber), record);
+  });
+  return map.size;
+}
+
+function hasRequiredExerciseMinimum(dateState = state) {
+  return requiredExercises.every((exercise) => getCompletedCountForExercise(exercise.id, dateState) > 0);
+}
+
+function getCompletedAllSetCount(dateState = state) {
+  return getCompletedActiveSetCount(dateState);
+}
+
 function getCompletedCountForExercise(exerciseId, dateState = state) {
   return [...getCompletedRecordMap(dateState).keys()].filter((key) => key.startsWith(`${exerciseId}:`)).length;
 }
@@ -794,7 +903,7 @@ function getAllHistory() {
       historyList.push({
         date: dateStr,
         completed: dateState.completed,
-        completedSets: getCompletedSetCount(dateState),
+        completedSets: getCompletedRequiredSetCount(dateState),
         sessionSeconds: dateState.sessionSeconds,
         setRecords: dateState.setRecords,
       });
@@ -883,7 +992,7 @@ function renderHistory() {
 
       const stampHtml = day.completed
         ? `<span class="stamp-badge"><i data-lucide="trophy"></i> 완료</span>`
-        : `<span class="history-rep-chip">${day.completedSets}세트 진행</span>`;
+        : `<span class="history-rep-chip">필수 ${day.completedSets}세트 진행</span>`;
       const [, month, date] = day.date.split("-");
       const formattedDate = `${month}월 ${date}일`;
       return `
@@ -1007,10 +1116,11 @@ function renderSequence() {
       const isActive = index === state.exerciseIndex && state.phase !== "complete";
       const doneCount = getCompletedCountForExercise(exercise.id);
       const isDone = doneCount >= exercise.sets;
+      const typeLabel = exercise.optional ? "선택" : "필수";
       return `
-        <button class="sequence-item ${isActive ? "is-active" : ""}" style="--accent:${exercise.group.accent}" data-index="${index}" type="button">
+        <button class="sequence-item ${isActive ? "is-active" : ""} ${exercise.optional ? "is-optional" : ""}" style="--accent:${exercise.group.accent}" data-index="${index}" type="button">
           <span>
-            <small>${exercise.group.name} · ${exercise.level}</small>
+            <small>${exercise.group.name} · ${typeLabel} · ${exercise.level}</small>
             <span>${exercise.name}</span>
           </span>
           <em>${isDone ? "완료" : `${doneCount}/${exercise.sets}`}</em>
@@ -1060,7 +1170,7 @@ function renderExercise() {
   els.exerciseName.classList.toggle("long-name", exercise.name.length >= 8);
   els.targetText.textContent = exercise.target;
   els.repsText.textContent = exercise.reps;
-  els.setText.textContent = `${state.setNumber} / ${exercise.sets} 세트 목표`;
+  els.setText.textContent = `${state.setNumber} / ${exercise.sets} 세트 목표${exercise.optional ? " · 선택" : " · 필수"}`;
   els.restText.textContent = `${exercise.rest}초`;
   els.noteList.innerHTML = exercise.notes.map((note) => `<span>${escapeHtml(note)}</span>`).join("");
   els.repInput.value = getRepsForCurrentSet();
@@ -1080,10 +1190,11 @@ function updateTimerProgress() {
 
 function renderTimer() {
   const exercise = getCurrentExercise();
-  const completedCount = getCompletedActiveSetCount();
-  const progress = Math.round((completedCount / totalSets) * 100);
+  const completedRequiredCount = getCompletedRequiredSetCount();
+  const requiredMinimumDone = hasRequiredExerciseMinimum();
+  const progress = Math.round((Math.min(completedRequiredCount, totalSets) / totalSets) * 100);
   els.progressBar.style.width = `${progress}%`;
-  els.totalProgressText.textContent = `${completedCount} / ${totalSets} 세트`;
+  els.totalProgressText.textContent = `필수 ${completedRequiredCount} / ${totalSets} 세트`;
   els.timerBoard.classList.toggle("is-rest", state.phase === "rest");
   els.timerBoard.classList.toggle("is-complete", state.phase === "complete");
   els.timerText.textContent = formatStopwatchTime(state.sessionSeconds);
@@ -1120,9 +1231,11 @@ function renderTimer() {
     els.finishWorkoutBtn.querySelector("span").textContent = "오늘 운동 완료됨";
     els.finishWorkoutBtn.style.opacity = "0.7";
   } else {
-    els.finishWorkoutBtn.disabled = false;
-    els.finishWorkoutBtn.querySelector("span").textContent = "성공한 세트로 오늘 완료";
-    els.finishWorkoutBtn.style.opacity = "1";
+    els.finishWorkoutBtn.disabled = !requiredMinimumDone;
+    els.finishWorkoutBtn.querySelector("span").textContent = requiredMinimumDone
+      ? "필수 완료로 오늘 운동 완료"
+      : `필수 운동 진행 중 ${completedRequiredCount}/${totalSets}`;
+    els.finishWorkoutBtn.style.opacity = requiredMinimumDone ? "1" : "0.62";
   }
 }
 
@@ -1382,8 +1495,8 @@ function completeSet() {
   state.inputReps[getInputKey(exercise.id, state.setNumber)] = reps;
   const keepTimerRunning = state.running;
 
-  const completedCount = getCompletedActiveSetCount();
-  if (completedCount >= totalSets) {
+  const completedCount = getCompletedAllSetCount();
+  if (completedCount >= allExerciseSets) {
     state.phase = "complete";
     state.completed = true;
     state.running = false;
@@ -1433,7 +1546,11 @@ function resetWorkout() {
 }
 
 function completeWorkout() {
-  if (!confirm("성공한 세트만 기록한 상태로 오늘 운동을 완료할까요? 1-2세트만 해도 괜찮습니다.")) return;
+  if (!hasRequiredExerciseMinimum()) {
+    alert("오늘 운동 완료는 필수 7종목을 최소 1세트씩 기록한 뒤 사용할 수 있습니다.");
+    return;
+  }
+  if (!confirm("선택 운동을 못했더라도 필수 루틴을 기준으로 오늘 운동을 완료할까요?")) return;
   state.phase = "complete";
   state.completed = true;
   state.running = false;
@@ -1465,7 +1582,7 @@ function buildDailySummary(dateState = state) {
     date: dateState.date,
     completed: Boolean(dateState.completed),
     totalSets,
-    completedSets: getCompletedActiveSetCount(dateState),
+    completedSets: getCompletedRequiredSetCount(dateState),
     sessionSeconds: dateState.sessionSeconds || 0,
     updatedAt: new Date().toISOString(),
     stateJson: JSON.stringify({
@@ -1901,6 +2018,7 @@ function openExerciseInfo() {
   els.exerciseInfoSubtitle.textContent = `${exercise.group.name} · ${exercise.target}`;
   els.exerciseInfoSummary.textContent = exercise.intro || "자세를 유지할 수 있는 범위에서 천천히 진행하세요.";
   els.exerciseInfoMeta.innerHTML = [
+    `<span><i data-lucide="${exercise.optional ? "circle-dashed" : "badge-check"}"></i>${exercise.optional ? "선택 운동" : "필수 운동"}</span>`,
     `<span><i data-lucide="repeat"></i>${escapeHtml(exercise.reps)} · 목표 ${exercise.sets}세트</span>`,
     `<span><i data-lucide="timer"></i>휴식 ${exercise.rest}초</span>`,
     `<span><i data-lucide="package"></i>${escapeHtml(exercise.equipment || "맨몸")}</span>`,
