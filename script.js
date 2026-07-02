@@ -55,7 +55,7 @@ const routineGroups = [
         reps: "10-15회",
         sets: 3,
         rest: 60,
-        image: "assets/band-lat-pulldown.svg",
+        image: "assets/band-lat-pulldown.gif",
         equipment: "고리형 밴드, 상단 고정점",
         notes: ["밴드 고정점 확인", "목 뒤가 아닌 가슴 앞으로"],
         intro:
@@ -122,7 +122,7 @@ const routineGroups = [
         reps: "5-10회",
         sets: 3,
         rest: 60,
-        image: "assets/ab-wheel-rollout.png",
+        image: "assets/ab-wheel-rollout.webp",
         equipment: "AB슬라이드, 무릎 매트",
         notes: ["복부 힘 유지", "허리 꺾이면 즉시 중단"],
         intro:
@@ -139,7 +139,7 @@ const routineGroups = [
         reps: "좌우 8-12회",
         sets: 3,
         rest: 45,
-        image: "assets/side-plank-reach.svg",
+        image: "assets/side-plank-reach.png",
         equipment: "매트",
         notes: ["골반 높이 유지", "허리 비틀림 과도 금지"],
         intro:
@@ -164,7 +164,7 @@ const routineGroups = [
         reps: "10-15회",
         sets: 3,
         rest: 60,
-        image: "assets/band-squat.svg",
+        image: "assets/band-squat.png",
         equipment: "고리형 밴드",
         notes: ["무릎 위에 밴드", "무릎 안쪽 무너짐 방지"],
         intro:
@@ -194,8 +194,8 @@ const routineGroups = [
   },
 ];
 
-const appVersion = "2.2.0";
-const assetVersion = "routine-redesign-20260702";
+const appVersion = "2.2.1";
+const assetVersion = "user-assets-20260702";
 const storagePrefix = "workoutPatternCoach:";
 const settingsKey = `${storagePrefix}settings`;
 const userKey = `${storagePrefix}userId`;

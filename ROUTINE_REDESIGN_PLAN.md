@@ -87,7 +87,7 @@
    - 이름 변경: AB슬라이드 기본형
    - 반복: 5-10회
    - 세트: 3
-   - 이미지: 현재 `assets/ab-wheel-rollout.svg` 교체
+   - 이미지: `assets/ab-wheel-rollout.webp`
    - 소개: 무릎 대고 시작하되 동작은 기본 롤아웃 형태로 설명
    - 주의: 허리 꺾임, 어깨 통증, 과도한 가동범위
 
@@ -96,7 +96,7 @@
    - 이름: 사이드 플랭크 리치스루
    - 반복: 좌우 8-12회 또는 15-30초
    - 세트: 3
-   - 이미지: 새 이미지 필요
+   - 이미지: `assets/side-plank-reach.png`
    - 소개: 옆구리와 코어 안정성 보완
    - 대체안: 사이드 플랭크 정지 버전
 
@@ -107,7 +107,7 @@
    - 이름: 밴드 스쿼트
    - 반복: 10-15회
    - 세트: 3
-   - 이미지: 새 이미지 필요
+   - 이미지: `assets/band-squat.png`
    - 소개: 고리형 밴드를 무릎 위에 두고 무릎이 안쪽으로 모이지 않게 앉고 일어남
 
 2. `band-glute-bridge`
@@ -115,7 +115,7 @@
    - 이름: 밴드 글루트 브릿지
    - 반복: 10-15회
    - 세트: 3
-   - 이미지: 현재 `assets/glute-bridge.svg` 교체
+   - 이미지: `assets/band-glute-bridge.png`
    - 소개: 누워서 무릎 위 밴드를 벌리며 엉덩이를 들어 올리는 운동
 
 ## 이미지 교체 계획
@@ -124,31 +124,25 @@
 
 웹앱은 GitHub Pages에 공개되므로 이미지는 다음 중 하나만 사용한다.
 
-1. 직접 제작한 이미지
-2. 사용 허가가 명확한 공개 라이선스 이미지
-3. Wikimedia Commons 등에서 라이선스와 저작자 표기가 가능한 이미지
+1. 사용자가 직접 제공한 이미지
+2. 직접 제작한 이미지
+3. 사용 허가가 명확한 공개 라이선스 이미지
 4. 무료 스톡이라도 재배포/수정/상업적 사용 조건이 명확한 이미지
 
 ACE, NASM, YouTube, 블로그의 운동 사진은 설명 참고용으로만 사용하고, 이미지 파일을 그대로 복사하지 않는다. 저작권이 불명확하기 때문이다.
 
-### 우선 교체 대상
+### 적용된 교체 파일
 
-| 파일 | 현재 문제 | 교체 방향 |
+| 운동 | 적용 파일 | 비고 |
 | --- | --- | --- |
-| `assets/ab-wheel-rollout.svg` | 동작이 AB슬라이드처럼 보이지 않음 | 실제 AB슬라이드/ab wheel rollout 사진 또는 명확한 새 일러스트 |
-| `assets/glute-bridge.svg` | 글루트 브릿지 자세를 알아보기 어려움 | 누운 자세, 무릎 굽힘, 엉덩이 들어올림이 분명한 이미지 |
-| 새 `assets/band-lat-pulldown.*` | 파일 없음 | 밴드가 머리 위 고정점에서 아래로 당겨지는 이미지 |
-| 새 `assets/side-plank-reach.*` | 파일 없음 | 옆으로 버티며 몸통 회전/팔 통과 동작 이미지 |
-| 새 `assets/band-squat.*` | 파일 없음 | 무릎 위 고리형 밴드가 보이는 스쿼트 이미지 |
+| AB슬라이드 기본형 | `assets/ab-wheel-rollout.webp` | 사용자 제공 이미지 |
+| 벤트오버 로우 | `assets/bent-row.png` | 사용자 제공 이미지로 교체 |
+| 밴드 랫 풀다운 | `assets/band-lat-pulldown.gif` | 사용자 제공 GIF |
+| 사이드 플랭크 리치스루 | `assets/side-plank-reach.png` | 사용자 제공 이미지 |
+| 밴드 스쿼트 | `assets/band-squat.png` | 사용자 제공 이미지 |
+| 밴드 글루트 브릿지 | `assets/band-glute-bridge.png` | 사용자 제공 MP4에서 대표 프레임 추출 |
 
-### 후보 출처
-
-- Wikimedia Commons `Glute-bridge.png`: CC BY-SA 4.0 라이선스. 글루트 브릿지 이미지 후보.
-- Wikimedia Commons `Bridge-1.png`: CC BY-SA 3.0 라이선스. 힙/브릿지 운동 도식 후보.
-- Wikimedia Commons `Category:Push-ups`: 푸쉬업 이미지 후보를 찾는 출처.
-- Wikimedia Commons `Category:Weight training diagrams`: ab rollout 관련 SVG 후보가 있음.
-
-공개 라이선스 이미지를 사용하면 앱이나 문서에 `이미지 출처/라이선스` 섹션을 추가해야 한다.
+사용자 제공 이미지의 원 저작권과 재배포 가능 여부는 사용자 확인이 필요하다.
 
 ## UI 변경 계획
 
@@ -225,4 +219,4 @@ ACE, NASM, YouTube, 블로그의 운동 사진은 설명 참고용으로만 사�
 - Healthline의 디클라인 푸쉬업 가이드는 허리와 목 정렬, 코어와 둔근 긴장을 강조한다.
 - Garage Gym Reviews의 밴드 랫 풀다운 설명은 밴드를 높은 곳에 고정하고 아래로 당기는 방식을 제시한다.
 - Fitwill의 밴드 글루트 브릿지 설명은 무릎 위 밴드를 사용해 엉덩이와 고관절 신전을 훈련하는 운동으로 설명한다.
-- Wikimedia Commons에는 글루트 브릿지와 웨이트 트레이닝 도식 등 공개 라이선스 이미지 후보가 있다.
+- 최종 적용 이미지는 사용자가 `assets` 폴더에 추가한 파일을 기준으로 정리했다.

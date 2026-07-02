@@ -27,8 +27,8 @@
 - 가슴 운동을 `일반 푸쉬업`, `디클라인 푸쉬업` 2종으로 변경
 - 고리형 밴드를 활용하도록 `밴드 랫 풀다운`, `밴드 스쿼트`, `밴드 글루트 브릿지` 추가
 - 복근을 `AB슬라이드 기본형`, `사이드 플랭크 리치스루` 2종으로 변경
-- `assets/ab-wheel-rollout.png`, `assets/band-glute-bridge.png`를 Wikimedia Commons 공개 라이선스 이미지 기반으로 교체
-- `assets/band-lat-pulldown.svg`, `assets/band-squat.svg`, `assets/side-plank-reach.svg` 직접 제작 이미지 추가
+- 사용자가 추가한 새 운동 이미지로 `AB슬라이드`, `벤트오버 로우`, `밴드 랫 풀다운`, `사이드 플랭크 리치스루`, `밴드 스쿼트`, `밴드 글루트 브릿지` 이미지 교체
+- `band-glute-bridge.mp4`는 대표 프레임을 추출해 `assets/band-glute-bridge.png`로 사용
 - 운동 이미지를 클릭하면 소개 모달이 열리도록 개선
 - 루틴에서 빠진 예전 운동도 보관 정의로 유지해 과거 기록이 사라지지 않도록 개선
 - `벤트오버 물병 로우`를 `벤트오버 로우`로 변경
@@ -65,20 +65,18 @@
 
 AB슬라이드는 허리가 꺾이지 않는 짧은 범위에서 시작합니다. 허리, 어깨, 손목에 통증이 있으면 해당 세트는 중단하고 다음 운동으로 넘어갑니다.
 
-## 이미지 출처와 라이선스
+## 이미지 출처와 파일
 
-아래 이미지는 공개 라이선스 자료를 사용했습니다.
+아래 이미지는 사용자가 `assets` 폴더에 추가한 자료를 앱 표시용으로 정리한 것입니다.
 
 | 파일 | 출처 | 라이선스 |
 | --- | --- | --- |
-| `assets/ab-wheel-rollout.png` | Wikimedia Commons `Ab-rollout-on-knees-1.png` | CC BY-SA 계열, Everkinetic |
-| `assets/band-glute-bridge.png` | Wikimedia Commons `Bridge-1.png` | CC BY-SA 3.0, Everkinetic |
-
-아래 이미지는 이 프로젝트용으로 직접 제작했습니다.
-
-- `assets/band-lat-pulldown.svg`
-- `assets/band-squat.svg`
-- `assets/side-plank-reach.svg`
+| `assets/ab-wheel-rollout.webp` | 사용자 제공 `AB rollout.webp` | 사용자 확인 필요 |
+| `assets/bent-row.png` | 사용자 제공 `bent over low.png` | 사용자 확인 필요 |
+| `assets/band-lat-pulldown.gif` | 사용자 제공 `behind let pull dwon.gif` | 사용자 확인 필요 |
+| `assets/side-plank-reach.png` | 사용자 제공 `side plank .png` | 사용자 확인 필요 |
+| `assets/band-squat.png` | 사용자 제공 `band squrt.png` | 사용자 확인 필요 |
+| `assets/band-glute-bridge.png` | 사용자 제공 `band glut bridge.mp4`에서 대표 프레임 추출 | 사용자 확인 필요 |
 
 ## 기록 구조
 
