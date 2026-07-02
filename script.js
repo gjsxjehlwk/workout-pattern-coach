@@ -260,7 +260,6 @@ const routineGroups = [
 ];
 
 const appVersion = "2.3.0";
-const assetVersion = "beginner-equipment-20260702";
 const storagePrefix = "workoutPatternCoach:";
 const settingsKey = `${storagePrefix}settings`;
 const userKey = `${storagePrefix}userId`;
@@ -1160,7 +1159,7 @@ function getRepsForCurrentSet() {
 function renderExercise() {
   const exercise = getCurrentExercise();
   document.documentElement.style.setProperty("--accent", exercise.group.accent);
-  els.exerciseImage.src = `${exercise.image}?v=${assetVersion}`;
+  els.exerciseImage.src = exercise.image;
   els.exerciseImage.alt = exercise.name;
   els.exerciseInfoBtn.setAttribute("aria-label", `${exercise.name} 운동 소개 열기`);
   els.groupPill.textContent = `${exercise.group.name} · ${exercise.group.subtitle}`;
@@ -2012,7 +2011,7 @@ function renderInfoList(items) {
 
 function openExerciseInfo() {
   const exercise = getCurrentExercise();
-  els.exerciseInfoImage.src = `${exercise.image}?v=${assetVersion}`;
+  els.exerciseInfoImage.src = exercise.image;
   els.exerciseInfoImage.alt = exercise.name;
   els.exerciseInfoTitle.textContent = exercise.name;
   els.exerciseInfoSubtitle.textContent = `${exercise.group.name} · ${exercise.target}`;
