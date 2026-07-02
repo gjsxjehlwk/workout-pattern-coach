@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>운동 패턴 코치</title>
-    <link rel="stylesheet" href="styles.css?v=2.3.0" />
+    <link rel="stylesheet" href="styles.css?v=2.4.0" />
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
     <script>
       window.handleGoogleIdentityLoaded = function () {
@@ -12,7 +12,7 @@
       };
     </script>
     <script src="https://accounts.google.com/gsi/client" async defer onload="window.handleGoogleIdentityLoaded()"></script>
-    <script src="script.js?v=2.3.0" defer></script>
+    <script src="script.js?v=2.4.0" defer></script>
   </head>
   <body>
     <div class="app-shell">
@@ -70,6 +70,21 @@
                     <i data-lucide="plus"></i>
                   </button>
                 </div>
+              </div>
+              <div class="set-meta-grid">
+                <label class="set-meta-field">
+                  <span>무게/밴드 강도</span>
+                  <input id="loadInput" type="text" maxlength="40" autocomplete="off" />
+                </label>
+                <label class="set-meta-field">
+                  <span>컨디션</span>
+                  <select id="conditionSelect">
+                    <option value="ok">괜찮음</option>
+                    <option value="hard">힘듦</option>
+                    <option value="discomfort">불편</option>
+                    <option value="pain">통증</option>
+                  </select>
+                </label>
               </div>
               <div class="buttons-grid">
                 <button class="primary-btn" id="startPauseBtn" type="button">
@@ -144,6 +159,8 @@
             <span>운동 기록 (History)</span>
             <button id="clearHistoryBtn" class="clear-btn" type="button">전체 삭제</button>
           </div>
+
+          <section class="weekly-summary-card" id="weeklySummaryCard" aria-label="주간 요약"></section>
           
           <!-- 일일 기록 뷰 -->
           <div class="history-list tab-content" id="dailyHistoryView">
@@ -202,6 +219,7 @@
               </div>
             </div>
             <p class="sync-status" id="syncStatusText">Apps Script URL을 입력하면 Google Sheets 동기화가 켜집니다.</p>
+            <div class="sync-error-details" id="syncErrorDetails" hidden></div>
             <div class="sync-actions">
               <button type="button" class="sync-btn" id="saveSyncSettingsBtn">
                 <i data-lucide="save"></i> 저장
@@ -211,6 +229,12 @@
               </button>
               <button type="button" class="sync-btn" id="pullRemoteBtn">
                 <i data-lucide="cloud-download"></i> 불러오기
+              </button>
+              <button type="button" class="sync-btn" id="retryFailedSyncBtn">
+                <i data-lucide="rotate-cw"></i> 재시도
+              </button>
+              <button type="button" class="sync-btn danger-sync-btn" id="clearSyncQueueBtn">
+                <i data-lucide="trash-2"></i> 대기열 비우기
               </button>
             </div>
           </section>
@@ -257,6 +281,16 @@
           <div class="dialog-scale">
             <h3>초보자 조절</h3>
             <p id="exerciseInfoScale"></p>
+          </div>
+          <div class="dialog-columns safety-columns">
+            <section>
+              <h3>자세 경고</h3>
+              <ul id="exerciseInfoMistakes"></ul>
+            </section>
+            <section>
+              <h3>중단 기준</h3>
+              <ul id="exerciseInfoStop"></ul>
+            </section>
           </div>
         </div>
       </div>

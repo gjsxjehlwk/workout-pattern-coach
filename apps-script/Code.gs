@@ -23,6 +23,8 @@ const SET_LOG_HEADERS = [
   "reps",
   "completedAt",
   "syncedAt",
+  "loadText",
+  "condition",
 ];
 
 const DAILY_SUMMARY_HEADERS = [
@@ -130,6 +132,8 @@ function upsertSetLog_(record, auth) {
     reps: Number(record.reps || 0),
     completedAt: String(record.completedAt || now),
     syncedAt: now,
+    loadText: String(record.loadText || ""),
+    condition: String(record.condition || "ok"),
   };
   upsertByKey_(sheet, SET_LOG_HEADERS, id, values);
   return { id };

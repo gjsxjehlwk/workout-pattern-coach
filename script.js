@@ -259,7 +259,62 @@ const routineGroups = [
   },
 ];
 
-const appVersion = "2.3.0";
+const exerciseGuides = {
+  "pushup-standard": {
+    loadDefault: "푸쉬업바",
+    mistakes: ["허리가 아래로 처지거나 엉덩이가 먼저 올라가면 몸통 일직선이 깨진 상태입니다.", "팔꿈치가 어깨선과 거의 일직선으로 벌어지면 어깨 앞쪽 부담이 커집니다."],
+    stopCriteria: ["어깨 앞쪽이 찌릿하거나 손목이 날카롭게 아프면 중단합니다.", "몸통이 버티지 못해 허리가 꺾이면 무릎 푸쉬업으로 바꿉니다."],
+  },
+  "dumbbell-floor-press": {
+    loadDefault: "7kg x 2",
+    mistakes: ["덤벨을 얼굴 쪽으로 밀면 어깨가 불안해지고 손목이 꺾이기 쉽습니다.", "허리를 크게 띄워 갈비뼈가 들리면 가슴보다 허리 긴장이 커집니다."],
+    stopCriteria: ["어깨 앞쪽 통증이나 팔 저림이 생기면 즉시 멈춥니다.", "7kg으로 6회 미만에서 자세가 무너지면 그날은 푸쉬업만 기록합니다."],
+  },
+  "band-lat-pulldown": {
+    loadDefault: "튜빙밴드 중간",
+    mistakes: ["손잡이를 목 뒤로 당기면 어깨가 불편해질 수 있습니다.", "몸을 뒤로 젖혀 반동으로 당기면 등 자극이 줄어듭니다."],
+    stopCriteria: ["도어앵커가 움직이거나 밴드에 균열이 보이면 세트를 시작하지 않습니다.", "어깨가 찝히거나 목이 먼저 뻐근해지면 저항을 줄입니다."],
+  },
+  "bent-over-row": {
+    loadDefault: "7kg x 2",
+    mistakes: ["등이 둥글게 말린 상태에서 당기면 허리 부담이 커집니다.", "덤벨을 위아래로만 흔들면 팔 운동처럼 변하고 등 자극이 약해집니다."],
+    stopCriteria: ["허리 통증이 느껴지면 즉시 멈추고 상체 각도를 더 세웁니다.", "상체 각도가 세트 중 계속 흔들리면 한 손 지지 원암 로우로 바꿉니다."],
+  },
+  "band-side-lateral-raise": {
+    loadDefault: "튜빙밴드 약",
+    mistakes: ["어깨를 귀 쪽으로 으쓱하면 측면 어깨보다 목이 먼저 지칩니다.", "몸을 젖히거나 반동으로 올리면 밴드 저항을 제대로 통제하지 못한 상태입니다."],
+    stopCriteria: ["목과 승모근만 뻐근하면 밴드를 길게 잡아 저항을 낮춥니다.", "어깨 관절이 찝히거나 팔이 저리면 그 세트는 중단합니다."],
+  },
+  "ab-wheel-rollout": {
+    loadDefault: "AB슬라이드",
+    mistakes: ["멀리 가려다 허리가 아래로 꺾이면 복근이 아니라 허리로 버티는 상태입니다.", "손으로만 끌어오면 복부 긴장이 풀리고 어깨가 먼저 피곤해집니다."],
+    stopCriteria: ["허리 통증이 생기면 즉시 범위를 줄이거나 플랭크로 대체합니다.", "손목이나 어깨가 찌릿하면 그날 AB슬라이드는 중단합니다."],
+  },
+  "band-squat": {
+    loadDefault: "고리형 밴드",
+    mistakes: ["무릎이 밴드에 밀려 안쪽으로 모이면 둔근 긴장이 풀린 상태입니다.", "발뒤꿈치가 들리거나 허리가 말리면 깊이를 욕심낸 것입니다."],
+    stopCriteria: ["무릎 안쪽 통증이 생기면 깊이를 줄이고 천천히 일어섭니다.", "허리로 버티는 느낌이 강하면 그 세트는 중단합니다."],
+  },
+  "side-plank-reach": {
+    loadDefault: "맨몸",
+    mistakes: ["골반이 바닥 쪽으로 떨어지면 옆구리 버팀이 풀린 상태입니다.", "팔만 빠르게 움직이고 몸통이 같이 회전하지 않으면 자극이 흐려집니다."],
+    stopCriteria: ["아래쪽 어깨가 찝히면 정지 사이드 플랭크나 무릎 버전으로 바꿉니다.", "허리를 비틀 때 통증이 있으면 회전 범위를 줄입니다."],
+  },
+  "band-glute-bridge": {
+    loadDefault: "고리형 밴드",
+    mistakes: ["허리를 꺾어 높이 올리면 둔근보다 허리 압박이 커집니다.", "무릎이 안쪽으로 모이면 밴드 저항을 놓친 상태입니다."],
+    stopCriteria: ["허리 압박이 느껴지면 올리는 높이를 줄이고 복부 힘을 다시 잡습니다.", "햄스트링에 쥐가 나려 하면 발 위치를 엉덩이에 조금 더 가깝게 둡니다."],
+  },
+};
+
+const conditionOptions = {
+  ok: { label: "괜찮음", tone: "ok" },
+  hard: { label: "힘듦", tone: "hard" },
+  discomfort: { label: "불편", tone: "warn" },
+  pain: { label: "통증", tone: "danger" },
+};
+
+const appVersion = "2.4.0";
 const storagePrefix = "workoutPatternCoach:";
 const settingsKey = `${storagePrefix}settings`;
 const userKey = `${storagePrefix}userId`;
@@ -279,6 +334,7 @@ const weekLabels = [
 const exercises = routineGroups
   .flatMap((group, groupIndex) =>
     group.exercises.map((exercise, exerciseIndex) => ({
+      ...(exerciseGuides[exercise.id] || {}),
       ...exercise,
       group: {
         id: group.id,
@@ -428,6 +484,8 @@ const els = {
   repInput: document.querySelector("#repInput"),
   repDecBtn: document.querySelector("#repDecBtn"),
   repIncBtn: document.querySelector("#repIncBtn"),
+  loadInput: document.querySelector("#loadInput"),
+  conditionSelect: document.querySelector("#conditionSelect"),
   finishWorkoutBtn: document.querySelector("#finishWorkoutBtn"),
   clearHistoryBtn: document.querySelector("#clearHistoryBtn"),
   tabDailyBtn: document.querySelector("#tabDailyBtn"),
@@ -452,8 +510,12 @@ const els = {
   saveSyncSettingsBtn: document.querySelector("#saveSyncSettingsBtn"),
   syncNowBtn: document.querySelector("#syncNowBtn"),
   pullRemoteBtn: document.querySelector("#pullRemoteBtn"),
+  retryFailedSyncBtn: document.querySelector("#retryFailedSyncBtn"),
+  clearSyncQueueBtn: document.querySelector("#clearSyncQueueBtn"),
   syncStatusText: document.querySelector("#syncStatusText"),
   syncQueueText: document.querySelector("#syncQueueText"),
+  syncErrorDetails: document.querySelector("#syncErrorDetails"),
+  weeklySummaryCard: document.querySelector("#weeklySummaryCard"),
   exerciseInfoDialog: document.querySelector("#exerciseInfoDialog"),
   exerciseInfoCloseBtn: document.querySelector("#exerciseInfoCloseBtn"),
   exerciseInfoImage: document.querySelector("#exerciseInfoImage"),
@@ -464,6 +526,8 @@ const els = {
   exerciseInfoSteps: document.querySelector("#exerciseInfoSteps"),
   exerciseInfoWatch: document.querySelector("#exerciseInfoWatch"),
   exerciseInfoScale: document.querySelector("#exerciseInfoScale"),
+  exerciseInfoMistakes: document.querySelector("#exerciseInfoMistakes"),
+  exerciseInfoStop: document.querySelector("#exerciseInfoStop"),
 };
 
 function getStorageKey(dateKey) {
@@ -508,6 +572,7 @@ function loadSettings() {
     autoSync: true,
     lastSyncAt: "",
     lastSyncError: "",
+    lastSyncErrorAt: "",
     ...safeJsonParse(localStorage.getItem(settingsKey), {}),
   };
 }
@@ -587,6 +652,8 @@ function defaultState(dateKey) {
     workSeconds: 0,
     restRemaining: 0,
     inputReps: {},
+    inputLoadText: {},
+    inputCondition: {},
     setRecords: [],
     completed: false,
     sessionSeconds: 0,
@@ -617,6 +684,8 @@ function normalizeState(saved, dateKey) {
       exerciseIndex: clampNumber(saved.exerciseIndex, 0, exercises.length - 1, 0),
       setNumber: clampNumber(saved.setNumber, 1, getCurrentExerciseFromIndex(saved.exerciseIndex).sets, 1),
       inputReps: sanitizeInputReps(saved.inputReps),
+      inputLoadText: sanitizeTextMap(saved.inputLoadText),
+      inputCondition: sanitizeConditionMap(saved.inputCondition),
       setRecords: sanitizeRecords(saved.setRecords, saved.date || dateKey),
       running: false,
     };
@@ -641,6 +710,8 @@ function migrateLegacyState(saved, dateKey) {
       ? saved.currentCalendarMonth
       : new Date().getMonth(),
     inputReps: {},
+    inputLoadText: {},
+    inputCondition: {},
     setRecords: [],
   };
 
@@ -683,6 +754,29 @@ function sanitizeInputReps(inputReps) {
   );
 }
 
+function sanitizeTextMap(valueMap) {
+  if (!valueMap || typeof valueMap !== "object") return {};
+  return Object.fromEntries(
+    Object.entries(valueMap)
+      .filter(([key]) => typeof key === "string")
+      .map(([key, value]) => [key, sanitizeShortText(value, 40)])
+      .filter(([, value]) => value)
+  );
+}
+
+function sanitizeConditionMap(valueMap) {
+  if (!valueMap || typeof valueMap !== "object") return {};
+  return Object.fromEntries(
+    Object.entries(valueMap)
+      .filter(([key, value]) => typeof key === "string" && conditionOptions[value])
+      .map(([key, value]) => [key, value])
+  );
+}
+
+function sanitizeShortText(value, maxLength = 80) {
+  return String(value || "").trim().slice(0, maxLength);
+}
+
 function sanitizeRecords(records, fallbackDateKey) {
   return records
     .map((record) => sanitizeRecord(record, fallbackDateKey))
@@ -707,6 +801,8 @@ function sanitizeRecord(record, fallbackDateKey) {
     groupName: exercise.group.name,
     setNumber,
     reps: clampNumber(Number(record.reps), 0, 999, getDefaultReps(exercise.reps)),
+    loadText: sanitizeShortText(record.loadText || record.weightText || record.bandText || "", 40),
+    condition: conditionOptions[record.condition] ? record.condition : "ok",
     completedAt: record.completedAt || new Date().toISOString(),
   };
 }
@@ -818,6 +914,14 @@ function getRecordForSet(exerciseId, setNumber, dateState = state) {
   return getCompletedRecordMap(dateState).get(getSetKey(exerciseId, setNumber));
 }
 
+function getConditionLabel(condition) {
+  return conditionOptions[condition]?.label || conditionOptions.ok.label;
+}
+
+function getConditionTone(condition) {
+  return conditionOptions[condition]?.tone || conditionOptions.ok.tone;
+}
+
 function findFirstIncompleteSetNumber(exercise, dateState = state) {
   for (let setNumber = 1; setNumber <= exercise.sets; setNumber += 1) {
     if (!getRecordForSet(exercise.id, setNumber, dateState)) return setNumber;
@@ -848,6 +952,20 @@ function getNextIncompletePosition(startIndex, dateState = state) {
     exerciseIndex: safeStartIndex,
     setNumber: exercises[safeStartIndex].sets,
   };
+}
+
+function formatExerciseSetCue(exercise, setNumber) {
+  if (!exercise) return "마무리";
+  return `${exercise.optional ? "선택" : "필수"} · ${exercise.name} ${setNumber}세트`;
+}
+
+function getNextPositionAfterCurrent(dateState = state) {
+  const exercise = getCurrentExerciseFromIndex(dateState.exerciseIndex);
+  const nextSetInExercise = findNextIncompleteSetNumber(exercise, dateState.setNumber, dateState);
+  if (nextSetInExercise) {
+    return { exerciseIndex: dateState.exerciseIndex, setNumber: nextSetInExercise };
+  }
+  return getNextIncompletePosition((dateState.exerciseIndex + 1) % exercises.length, dateState);
 }
 
 function isDateCompleted(dateKey) {
@@ -887,6 +1005,100 @@ function renderWeek() {
   els.todayCard.innerHTML = `
     <span>${weekLabels[today][0]}요일</span>
     <strong>${todayIsCompleted ? "오늘 운동 완료!" : todayIsWorkout ? "운동하는 날" : "쉬는 날"}</strong>
+  `;
+}
+
+function getWeekStart(date) {
+  const weekStart = new Date(date);
+  const day = weekStart.getDay();
+  const diff = day === 0 ? -6 : 1 - day;
+  weekStart.setDate(weekStart.getDate() + diff);
+  weekStart.setHours(0, 0, 0, 0);
+  return weekStart;
+}
+
+function addDays(date, amount) {
+  const next = new Date(date);
+  next.setDate(next.getDate() + amount);
+  return next;
+}
+
+function getWorkoutStreak(referenceDate = new Date()) {
+  let cursor = new Date(referenceDate);
+  cursor.setHours(0, 0, 0, 0);
+  while (!workDays.has(cursor.getDay())) {
+    cursor = addDays(cursor, -1);
+  }
+
+  let streak = 0;
+  for (let checked = 0; checked < 90; checked += 1) {
+    const dateKey = getLocalDateKey(cursor);
+    if (!isDateCompleted(dateKey)) break;
+    streak += 1;
+    do {
+      cursor = addDays(cursor, -1);
+    } while (!workDays.has(cursor.getDay()));
+  }
+  return streak;
+}
+
+function getWeeklyStats(referenceDate = new Date()) {
+  const weekStart = getWeekStart(referenceDate);
+  const workoutDateKeys = [];
+  for (let i = 0; i < 7; i += 1) {
+    const date = addDays(weekStart, i);
+    if (workDays.has(date.getDay())) workoutDateKeys.push(getLocalDateKey(date));
+  }
+
+  const weekStates = workoutDateKeys.map((dateKey) => loadStateForDate(dateKey));
+  const completedDays = weekStates.filter((dateState) => dateState.completed).length;
+  const requiredSets = weekStates.reduce((sum, dateState) => sum + getCompletedRequiredSetCount(dateState), 0);
+  const allSets = weekStates.reduce((sum, dateState) => sum + getCompletedAllSetCount(dateState), 0);
+  const sessionSeconds = weekStates.reduce((sum, dateState) => sum + (dateState.sessionSeconds || 0), 0);
+  const painCount = weekStates.reduce(
+    (sum, dateState) =>
+      sum + dateState.setRecords.filter((record) => record.condition === "pain" || record.condition === "discomfort").length,
+    0
+  );
+  const streak = getWorkoutStreak(referenceDate);
+  const badges = [];
+  if (completedDays >= 1) badges.push("첫 완료");
+  if (completedDays >= workoutDateKeys.length) badges.push("월수금 완료");
+  if (requiredSets >= totalSets) badges.push("필수 루틴 달성");
+  if (streak >= 2) badges.push(`${streak}회 연속`);
+  if (painCount === 0 && allSets > 0) badges.push("통증 기록 없음");
+
+  return {
+    completedDays,
+    workoutDays: workoutDateKeys.length,
+    requiredSets,
+    allSets,
+    optionalSets: Math.max(0, allSets - requiredSets),
+    sessionSeconds,
+    painCount,
+    streak,
+    badges,
+  };
+}
+
+function renderWeeklySummary() {
+  if (!els.weeklySummaryCard) return;
+  const stats = getWeeklyStats();
+  const badgeHtml = stats.badges.length
+    ? stats.badges.map((badge) => `<span>${escapeHtml(badge)}</span>`).join("")
+    : `<span>이번 주 첫 기록 대기</span>`;
+  els.weeklySummaryCard.innerHTML = `
+    <div class="weekly-summary-head">
+      <span>이번 주 요약</span>
+      <strong>${stats.completedDays}/${stats.workoutDays}회 완료</strong>
+    </div>
+    <div class="weekly-summary-grid">
+      <div><span>필수 세트</span><strong>${stats.requiredSets}</strong></div>
+      <div><span>선택 세트</span><strong>${stats.optionalSets}</strong></div>
+      <div><span>총 시간</span><strong>${formatStopwatchTime(stats.sessionSeconds)}</strong></div>
+      <div><span>불편/통증</span><strong>${stats.painCount}</strong></div>
+    </div>
+    <div class="badge-row">${badgeHtml}</div>
   `;
 }
 
@@ -978,7 +1190,12 @@ function renderHistory() {
           const groupName = firstRecord.groupName || exercise?.group?.name || "기록";
           const exerciseName = firstRecord.exerciseName || exercise?.name || exerciseId;
           const repsChips = records
-            .map((record) => `<span class="history-rep-chip">${record.setNumber}S: ${record.reps}회</span>`)
+            .map((record) => {
+              const loadText = record.loadText ? ` · ${escapeHtml(record.loadText)}` : "";
+              const condition = getConditionLabel(record.condition);
+              const tone = getConditionTone(record.condition);
+              return `<span class="history-rep-chip condition-${tone}">${record.setNumber}S: ${record.reps}회${loadText} · ${condition}</span>`;
+            })
             .join("");
           return `
             <div class="history-exercise-item">
@@ -1110,8 +1327,9 @@ function switchTab(tabName) {
 }
 
 function renderSequence() {
-  els.sequenceList.innerHTML = exercises
-    .map((exercise, index) => {
+  const renderItems = (items) =>
+    items
+      .map(({ exercise, index }) => {
       const isActive = index === state.exerciseIndex && state.phase !== "complete";
       const doneCount = getCompletedCountForExercise(exercise.id);
       const isDone = doneCount >= exercise.sets;
@@ -1125,8 +1343,27 @@ function renderSequence() {
           <em>${isDone ? "완료" : `${doneCount}/${exercise.sets}`}</em>
         </button>
       `;
-    })
-    .join("");
+      })
+      .join("");
+
+  const requiredItems = exercises.map((exercise, index) => ({ exercise, index })).filter(({ exercise }) => !exercise.optional);
+  const optionalItems = exercises.map((exercise, index) => ({ exercise, index })).filter(({ exercise }) => exercise.optional);
+  els.sequenceList.innerHTML = `
+    <section class="sequence-section">
+      <div class="sequence-section-title">
+        <span>필수 루틴</span>
+        <em>${getCompletedRequiredSetCount()} / ${totalSets}세트</em>
+      </div>
+      ${renderItems(requiredItems)}
+    </section>
+    <section class="sequence-section optional-section">
+      <div class="sequence-section-title">
+        <span>선택 추가</span>
+        <em>못해도 완료 가능</em>
+      </div>
+      ${renderItems(optionalItems)}
+    </section>
+  `;
 
   document.querySelectorAll(".sequence-item").forEach((button) => {
     button.addEventListener("click", () => jumpToExercise(Number(button.dataset.index)));
@@ -1156,6 +1393,31 @@ function getRepsForCurrentSet() {
   return getDefaultReps(exercise.reps);
 }
 
+function getLoadTextForCurrentSet() {
+  const exercise = getCurrentExercise();
+  const inputKey = getInputKey(exercise.id, state.setNumber);
+  if (state.inputLoadText[inputKey] !== undefined) return state.inputLoadText[inputKey];
+
+  const existingRecord = getRecordForSet(exercise.id, state.setNumber);
+  if (existingRecord?.loadText) return existingRecord.loadText;
+
+  const previousRecord = getRecordForSet(exercise.id, state.setNumber - 1);
+  if (previousRecord?.loadText) return previousRecord.loadText;
+
+  return exercise.loadDefault || exercise.equipment || "";
+}
+
+function getConditionForCurrentSet() {
+  const exercise = getCurrentExercise();
+  const inputKey = getInputKey(exercise.id, state.setNumber);
+  if (state.inputCondition[inputKey] !== undefined) return state.inputCondition[inputKey];
+
+  const existingRecord = getRecordForSet(exercise.id, state.setNumber);
+  if (existingRecord?.condition && conditionOptions[existingRecord.condition]) return existingRecord.condition;
+
+  return "ok";
+}
+
 function renderExercise() {
   const exercise = getCurrentExercise();
   document.documentElement.style.setProperty("--accent", exercise.group.accent);
@@ -1173,6 +1435,8 @@ function renderExercise() {
   els.restText.textContent = `${exercise.rest}초`;
   els.noteList.innerHTML = exercise.notes.map((note) => `<span>${escapeHtml(note)}</span>`).join("");
   els.repInput.value = getRepsForCurrentSet();
+  els.loadInput.value = getLoadTextForCurrentSet();
+  els.conditionSelect.value = getConditionForCurrentSet();
 }
 
 function updateTimerProgress() {
@@ -1202,14 +1466,15 @@ function renderTimer() {
     els.phaseLabel.textContent = "완료";
     els.nextCue.textContent = "오늘 루틴 완료";
   } else if (state.phase === "rest") {
+    const nextPosition = getNextPositionAfterCurrent();
+    const nextExercise = getCurrentExerciseFromIndex(nextPosition.exerciseIndex);
     els.phaseLabel.textContent = state.running ? "휴식 중" : "휴식 대기";
-    els.nextCue.textContent =
-      state.setNumber < exercise.sets
-        ? `휴식 ${formatTime(state.restRemaining)} 남음 · 다음: ${exercise.name} ${state.setNumber + 1}세트`
-        : `휴식 ${formatTime(state.restRemaining)} 남음 · 다음: ${exercises[state.exerciseIndex + 1]?.name ?? "마무리"}`;
+    els.nextCue.textContent = `휴식 ${formatTime(state.restRemaining)} 남음 · 다음: ${formatExerciseSetCue(nextExercise, nextPosition.setNumber)}`;
   } else {
+    const nextPosition = getNextPositionAfterCurrent();
+    const nextExercise = getCurrentExerciseFromIndex(nextPosition.exerciseIndex);
     els.phaseLabel.textContent = state.running ? "전체 운동 중" : "전체 시간 대기";
-    els.nextCue.textContent = `${exercise.reps} · ${state.setNumber}/${exercise.sets}세트`;
+    els.nextCue.textContent = `현재 ${exercise.reps} · ${state.setNumber}/${exercise.sets}세트 · 완료 후 ${formatExerciseSetCue(nextExercise, nextPosition.setNumber)}`;
   }
 
   const stopwatchNode = els.totalStopwatchText.querySelector(".stopwatch-time");
@@ -1260,6 +1525,11 @@ function getGoogleAccountLabel() {
   return getGoogleClientId() ? "로그인 전" : "Client ID 필요";
 }
 
+function setSyncError(message) {
+  settings.lastSyncError = message || "";
+  settings.lastSyncErrorAt = message ? new Date().toISOString() : "";
+}
+
 function activateGoogleUser(profile) {
   const nextUserId = `google:${profile.sub}`;
   const changedUser = userId !== nextUserId;
@@ -1267,7 +1537,7 @@ function activateGoogleUser(profile) {
   settings.activeUserId = nextUserId;
   settings.lastGoogleEmail = profile.email || "";
   settings.lastGoogleName = profile.name || "";
-  settings.lastSyncError = "";
+  setSyncError("");
   saveSettings();
 
   if (changedUser) {
@@ -1305,7 +1575,7 @@ function handleGoogleCredential(response) {
     render();
     flushSyncQueue();
   } catch (error) {
-    settings.lastSyncError = error.message || "Google 로그인 실패";
+    setSyncError(error.message || "Google 로그인 실패");
     saveSettings();
     renderSyncPanel();
     alert(`Google 로그인에 실패했습니다. ${settings.lastSyncError}`);
@@ -1355,7 +1625,7 @@ function signOutGoogle() {
   if (window.google && window.google.accounts && window.google.accounts.id) {
     window.google.accounts.id.disableAutoSelect();
   }
-  settings.lastSyncError = isGoogleUserId(userId) ? "Google 다시 로그인 필요" : "";
+  setSyncError(isGoogleUserId(userId) ? "Google 다시 로그인 필요" : "");
   saveSettings();
   render();
 }
@@ -1370,6 +1640,7 @@ function renderSyncPanel() {
   const lastSync = settings.lastSyncAt ? ` · 마지막 ${formatShortDateTime(settings.lastSyncAt)}` : "";
   const error = settings.lastSyncError ? ` · 오류: ${settings.lastSyncError}` : "";
   const authNotice = requiresGoogleAuthForSync() && !isAuthSessionFresh() ? " · Google 로그인 필요" : "";
+  const failedItem = syncQueue.find((item) => item.lastError) || null;
   els.syncStatusText.textContent = isBusy
     ? remoteImportInProgress
       ? "Google Sheets 기록을 불러오는 중입니다..."
@@ -1382,6 +1653,18 @@ function renderSyncPanel() {
   els.syncStatusText.classList.toggle("is-error", Boolean(settings.lastSyncError) && !isBusy);
   els.syncQueueText.textContent = isBusy ? "동기화 중" : pending ? `${pending}건 대기` : "대기 없음";
   els.syncQueueText.classList.toggle("is-working", isBusy);
+  if (els.syncErrorDetails) {
+    const shouldShowDetails = Boolean(settings.lastSyncError || failedItem);
+    els.syncErrorDetails.hidden = !shouldShowDetails;
+    if (shouldShowDetails) {
+      const detailTime = settings.lastSyncErrorAt || failedItem?.lastErrorAt || failedItem?.createdAt || "";
+      els.syncErrorDetails.innerHTML = `
+        <strong>동기화 실패 상세</strong>
+        <span>${escapeHtml(settings.lastSyncError || failedItem?.lastError || "대기열 전송 실패")}</span>
+        <small>${failedItem ? `${escapeHtml(failedItem.action)} · ${failedItem.attempts || 0}회 시도` : "인증 또는 설정 확인 필요"}${detailTime ? ` · ${formatShortDateTime(detailTime)}` : ""}</small>
+      `;
+    }
+  }
   els.googleAccountText.textContent = getGoogleAccountLabel();
   els.syncPanel.classList.toggle("is-busy", isBusy);
   els.syncPanel.classList.toggle("is-config-collapsed", collapseConfig);
@@ -1391,6 +1674,8 @@ function renderSyncPanel() {
   els.syncNowBtn.disabled = isBusy;
   els.pullRemoteBtn.disabled = isBusy;
   els.editSyncSettingsBtn.disabled = isBusy;
+  els.retryFailedSyncBtn.disabled = isBusy || !pending;
+  els.clearSyncQueueBtn.disabled = isBusy || !pending;
 
   if (document.activeElement !== els.appsScriptUrlInput) {
     els.appsScriptUrlInput.value = settings.appsScriptUrl;
@@ -1407,6 +1692,7 @@ function render() {
   renderTimer();
   updateTimerProgress();
   renderWeek();
+  renderWeeklySummary();
   renderSyncPanel();
   if (state.activeHistoryTab === "calendar") {
     switchTab("calendar");
@@ -1441,6 +1727,22 @@ function setCurrentInputReps(value) {
   saveState();
 }
 
+function setCurrentLoadText(value) {
+  const exercise = getCurrentExercise();
+  const loadText = sanitizeShortText(value, 40);
+  els.loadInput.value = loadText;
+  state.inputLoadText[getInputKey(exercise.id, state.setNumber)] = loadText;
+  saveState();
+}
+
+function setCurrentCondition(value) {
+  const exercise = getCurrentExercise();
+  const condition = conditionOptions[value] ? value : "ok";
+  els.conditionSelect.value = condition;
+  state.inputCondition[getInputKey(exercise.id, state.setNumber)] = condition;
+  saveState();
+}
+
 function buildRecordIdForUser(ownerId, dateKey, exerciseId, setNumber) {
   return `${ownerId}:${dateKey}:${exerciseId}:${setNumber}`;
 }
@@ -1449,7 +1751,7 @@ function buildRecordId(dateKey, exerciseId, setNumber) {
   return buildRecordIdForUser(userId, dateKey, exerciseId, setNumber);
 }
 
-function createSetRecord({ dateKey, exercise, setNumber, reps, completedAt }) {
+function createSetRecord({ dateKey, exercise, setNumber, reps, loadText, condition, completedAt }) {
   return {
     id: buildRecordId(dateKey, exercise.id, setNumber),
     userId,
@@ -1460,6 +1762,8 @@ function createSetRecord({ dateKey, exercise, setNumber, reps, completedAt }) {
     groupName: exercise.group.name,
     setNumber,
     reps,
+    loadText: sanitizeShortText(loadText || "", 40),
+    condition: conditionOptions[condition] ? condition : "ok",
     completedAt,
   };
 }
@@ -1482,16 +1786,22 @@ function completeSet() {
   if (state.phase === "rest" || state.phase === "complete") return;
   const exercise = getCurrentExercise();
   const reps = clampNumber(els.repInput.value, 0, 999, getDefaultReps(exercise.reps));
+  const loadText = sanitizeShortText(els.loadInput.value || getLoadTextForCurrentSet(), 40);
+  const condition = conditionOptions[els.conditionSelect.value] ? els.conditionSelect.value : "ok";
   const record = createSetRecord({
     dateKey: state.date,
     exercise,
     setNumber: state.setNumber,
     reps,
+    loadText,
+    condition,
     completedAt: new Date().toISOString(),
   });
 
   upsertRecord(state, record);
   state.inputReps[getInputKey(exercise.id, state.setNumber)] = reps;
+  state.inputLoadText[getInputKey(exercise.id, state.setNumber)] = loadText;
+  state.inputCondition[getInputKey(exercise.id, state.setNumber)] = condition;
   const keepTimerRunning = state.running;
 
   const completedCount = getCompletedAllSetCount();
@@ -1680,21 +1990,21 @@ async function flushSyncQueue() {
     return;
   }
   if (!syncQueue.length) {
-    settings.lastSyncError = "";
+    setSyncError("");
     saveSettings();
     renderSyncPanel();
     return;
   }
   const authPayload = requiresGoogleAuthForSync() ? getGoogleAuthPayload() : null;
   if (requiresGoogleAuthForSync() && !authPayload) {
-    settings.lastSyncError = getGoogleClientId() ? "Google 로그인 필요" : "Google OAuth Client ID 필요";
+    setSyncError(getGoogleClientId() ? "Google 로그인 필요" : "Google OAuth Client ID 필요");
     saveSettings();
     renderSyncPanel();
     return;
   }
 
   syncInProgress = true;
-  settings.lastSyncError = "";
+  setSyncError("");
   saveSettings();
   renderSyncPanel();
   try {
@@ -1716,14 +2026,15 @@ async function flushSyncQueue() {
           ...item,
           attempts: item.attempts + 1,
           lastError: error.message || "sync failed",
+          lastErrorAt: new Date().toISOString(),
         });
       }
     }
     syncQueue = remaining;
     settings.lastSyncAt = new Date().toISOString();
-    settings.lastSyncError = remaining.length ? remaining[0].lastError : "";
+    setSyncError(remaining.length ? remaining[0].lastError : "");
   } catch (error) {
-    settings.lastSyncError = error.message || "동기화 실패";
+    setSyncError(error.message || "동기화 실패");
   } finally {
     syncInProgress = false;
     saveSyncQueue();
@@ -1757,7 +2068,7 @@ function saveSyncSettingsFromUi() {
     renderedGoogleClientId = "";
     saveAuthSession();
   }
-  settings.lastSyncError = "";
+  setSyncError("");
   editingSyncSettings = false;
   saveSettings();
   renderSyncPanel();
@@ -1775,6 +2086,20 @@ function syncNow() {
   flushSyncQueue();
 }
 
+function retryFailedSync() {
+  flushSyncQueue();
+}
+
+function clearSyncQueue() {
+  if (!syncQueue.length) return;
+  if (!confirm("동기화 대기열을 비울까요? 로컬 기록은 남지만 아직 전송되지 않은 항목은 Google Sheets에 올라가지 않습니다.")) return;
+  syncQueue = [];
+  setSyncError("");
+  saveSyncQueue();
+  saveSettings();
+  renderSyncPanel();
+}
+
 function pullRemoteRecords() {
   if (remoteImportInProgress) return;
   if (!settings.appsScriptUrl.trim()) {
@@ -1783,7 +2108,7 @@ function pullRemoteRecords() {
   }
   const authPayload = requiresGoogleAuthForSync() ? getGoogleAuthPayload() : null;
   if (requiresGoogleAuthForSync() && !authPayload) {
-    settings.lastSyncError = getGoogleClientId() ? "Google 로그인 필요" : "Google OAuth Client ID 필요";
+    setSyncError(getGoogleClientId() ? "Google 로그인 필요" : "Google OAuth Client ID 필요");
     saveSettings();
     renderSyncPanel();
     alert(settings.lastSyncError);
@@ -1799,7 +2124,7 @@ function pullRemoteRecords() {
     url = new URL(settings.appsScriptUrl.trim());
   } catch {
     remoteImportInProgress = false;
-    settings.lastSyncError = "Apps Script URL 형식 오류";
+    setSyncError("Apps Script URL 형식 오류");
     saveSettings();
     renderSyncPanel();
     alert("Apps Script 웹앱 URL 형식을 확인해주세요.");
@@ -1820,14 +2145,14 @@ function pullRemoteRecords() {
         throw new Error(data?.error || "원격 기록을 불러오지 못했습니다.");
       }
       mergeRemoteData(data);
-      settings.lastSyncError = "";
+      setSyncError("");
       settings.lastSyncAt = new Date().toISOString();
       saveSettings();
       Object.assign(state, loadStateForDate(todayKey));
       render();
       alert("Google Sheets 기록을 불러왔습니다.");
     } catch (error) {
-      settings.lastSyncError = error.message;
+      setSyncError(error.message);
       saveSettings();
       renderSyncPanel();
       alert(error.message);
@@ -1843,7 +2168,7 @@ function pullRemoteRecords() {
     delete window[callbackName];
     script.remove();
     remoteImportInProgress = false;
-    settings.lastSyncError = "원격 기록 불러오기 실패";
+    setSyncError("원격 기록 불러오기 실패");
     saveSettings();
     renderSyncPanel();
     alert("원격 기록을 불러오지 못했습니다. Apps Script 배포 URL을 확인해주세요.");
@@ -1890,7 +2215,7 @@ function exportHistoryCsv() {
     return;
   }
 
-  const rows = [["날짜", "완수여부", "운동그룹", "운동ID", "운동이름", "세트번호", "수행횟수", "완료시각"]];
+  const rows = [["날짜", "완수여부", "운동그룹", "운동ID", "운동이름", "세트번호", "수행횟수", "무게/밴드", "컨디션", "완료시각"]];
   historyData.forEach((day) => {
     day.setRecords.forEach((record) => {
       rows.push([
@@ -1901,6 +2226,8 @@ function exportHistoryCsv() {
         record.exerciseName,
         `${record.setNumber}세트`,
         `${record.reps}회`,
+        record.loadText || "",
+        getConditionLabel(record.condition),
         record.completedAt,
       ]);
     });
@@ -2025,6 +2352,8 @@ function openExerciseInfo() {
   els.exerciseInfoSteps.innerHTML = renderInfoList(exercise.steps);
   els.exerciseInfoWatch.innerHTML = renderInfoList(exercise.watch);
   els.exerciseInfoScale.textContent = exercise.scale || "처음엔 1세트만 정확히 끝내고, 여유가 생기면 2세트와 3세트로 늘리세요.";
+  els.exerciseInfoMistakes.innerHTML = renderInfoList(exercise.mistakes);
+  els.exerciseInfoStop.innerHTML = renderInfoList(exercise.stopCriteria);
 
   if (typeof els.exerciseInfoDialog.showModal === "function") {
     els.exerciseInfoDialog.showModal();
@@ -2055,6 +2384,8 @@ els.resetBtn.addEventListener("click", resetWorkout);
 els.repDecBtn.addEventListener("click", () => adjustReps(-1));
 els.repIncBtn.addEventListener("click", () => adjustReps(1));
 els.repInput.addEventListener("input", () => setCurrentInputReps(els.repInput.value));
+els.loadInput.addEventListener("input", () => setCurrentLoadText(els.loadInput.value));
+els.conditionSelect.addEventListener("change", () => setCurrentCondition(els.conditionSelect.value));
 els.finishWorkoutBtn.addEventListener("click", completeWorkout);
 els.exerciseInfoBtn.addEventListener("click", openExerciseInfo);
 els.exerciseInfoCloseBtn.addEventListener("click", closeExerciseInfo);
@@ -2072,6 +2403,8 @@ els.saveSyncSettingsBtn.addEventListener("click", saveSyncSettingsFromUi);
 els.editSyncSettingsBtn.addEventListener("click", editSyncSettings);
 els.syncNowBtn.addEventListener("click", syncNow);
 els.pullRemoteBtn.addEventListener("click", pullRemoteRecords);
+els.retryFailedSyncBtn.addEventListener("click", retryFailedSync);
+els.clearSyncQueueBtn.addEventListener("click", clearSyncQueue);
 els.googleSignOutBtn.addEventListener("click", signOutGoogle);
 
 window.addEventListener("online", flushSyncQueue);
