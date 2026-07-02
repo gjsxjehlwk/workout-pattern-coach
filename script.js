@@ -314,7 +314,7 @@ const conditionOptions = {
   pain: { label: "통증", tone: "danger" },
 };
 
-const appVersion = "2.4.0";
+const appVersion = "2.4.1";
 const storagePrefix = "workoutPatternCoach:";
 const settingsKey = `${storagePrefix}settings`;
 const userKey = `${storagePrefix}userId`;
@@ -1469,19 +1469,21 @@ function renderTimer() {
     const nextPosition = getNextPositionAfterCurrent();
     const nextExercise = getCurrentExerciseFromIndex(nextPosition.exerciseIndex);
     els.phaseLabel.textContent = state.running ? "휴식 중" : "휴식 대기";
-    els.nextCue.textContent = `휴식 ${formatTime(state.restRemaining)} 남음 · 다음: ${formatExerciseSetCue(nextExercise, nextPosition.setNumber)}`;
+    els.nextCue.textContent = `휴식 ${formatTime(state.restRemaining)} 남음\n다음: ${formatExerciseSetCue(nextExercise, nextPosition.setNumber)}`;
   } else {
     const nextPosition = getNextPositionAfterCurrent();
     const nextExercise = getCurrentExerciseFromIndex(nextPosition.exerciseIndex);
     els.phaseLabel.textContent = state.running ? "전체 운동 중" : "전체 시간 대기";
-    els.nextCue.textContent = `현재 ${exercise.reps} · ${state.setNumber}/${exercise.sets}세트 · 완료 후 ${formatExerciseSetCue(nextExercise, nextPosition.setNumber)}`;
+    els.nextCue.textContent = `현재: ${exercise.reps} · ${state.setNumber}/${exercise.sets}세트\n다음: ${formatExerciseSetCue(nextExercise, nextPosition.setNumber)}`;
   }
 
-  const stopwatchNode = els.totalStopwatchText.querySelector(".stopwatch-time");
-  if (stopwatchNode) {
-    stopwatchNode.textContent = formatStopwatchTime(state.sessionSeconds);
-  } else {
-    els.totalStopwatchText.innerHTML = `<i data-lucide="clock"></i> <span class="stopwatch-time">${formatStopwatchTime(state.sessionSeconds)}</span>`;
+  if (els.totalStopwatchText) {
+    const stopwatchNode = els.totalStopwatchText.querySelector(".stopwatch-time");
+    if (stopwatchNode) {
+      stopwatchNode.textContent = formatStopwatchTime(state.sessionSeconds);
+    } else {
+      els.totalStopwatchText.innerHTML = `<i data-lucide="clock"></i> <span class="stopwatch-time">${formatStopwatchTime(state.sessionSeconds)}</span>`;
+    }
   }
 
   const startLabel = state.running ? "일시정지" : state.sessionSeconds > 0 ? "계속" : "시작";

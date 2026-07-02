@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>운동 패턴 코치</title>
-    <link rel="stylesheet" href="styles.css?v=2.4.0" />
+    <link rel="stylesheet" href="styles.css?v=2.4.1" />
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
     <script>
       window.handleGoogleIdentityLoaded = function () {
@@ -12,7 +12,7 @@
       };
     </script>
     <script src="https://accounts.google.com/gsi/client" async defer onload="window.handleGoogleIdentityLoaded()"></script>
-    <script src="script.js?v=2.4.0" defer></script>
+    <script src="script.js?v=2.4.1" defer></script>
   </head>
   <body>
     <div class="app-shell">
@@ -41,20 +41,18 @@
         <section class="coach-panel">
           <!-- 타이머 보드를 최상단으로 이동 및 서클 게이지 적용 -->
           <div class="timer-board" id="timerBoard">
-            <div class="timer-visual">
-              <svg class="progress-ring" width="140" height="140">
-                <circle class="progress-ring__background" cx="70" cy="70" r="62" stroke-width="8" fill="transparent"></circle>
-                <circle class="progress-ring__circle" id="timerProgressCircle" cx="70" cy="70" r="62" stroke-width="8" fill="transparent"></circle>
-              </svg>
-              <div class="timer-digits">
-                <p id="phaseLabel">대기</p>
-                <strong id="timerText">00:00</strong>
-                <span id="nextCue"></span>
-                <!-- 누적 스톱워치 텍스트 -->
-                <span class="total-stopwatch" id="totalStopwatchText">
-                  <i data-lucide="clock"></i> 총 운동 00:00
-                </span>
+            <div class="timer-status">
+              <div class="timer-visual">
+                <svg class="progress-ring" width="140" height="140">
+                  <circle class="progress-ring__background" cx="70" cy="70" r="62" stroke-width="8" fill="transparent"></circle>
+                  <circle class="progress-ring__circle" id="timerProgressCircle" cx="70" cy="70" r="62" stroke-width="8" fill="transparent"></circle>
+                </svg>
+                <div class="timer-digits">
+                  <p id="phaseLabel">대기</p>
+                  <strong id="timerText">00:00</strong>
+                </div>
               </div>
+              <div class="timer-cue" id="nextCue" aria-live="polite"></div>
             </div>
             <div class="timer-controls">
               <!-- 세트별 수행 횟수 기록용 조절기 -->
